@@ -1,0 +1,1058 @@
+---
+import MainLayout from '../layouts/main.astro';
+import { baseUrl } from '../lib/base-url';
+
+const pageClass = 'support';
+const title = 'Support | Sustainable Talent';
+const description = 'Get help with TalentOS™, find answers to common questions, and connect with our support team. Enterprise support for your global talent operations.';
+const ogImage = 'https://sustainabletalent.com/og-support.jpg';
+const canonicalUrl = 'https://sustainabletalent.com/support';
+
+// FAQ Data
+const faqs = [
+  {
+    category: 'Getting Started',
+    questions: [
+      {
+        q: 'How do I access the TalentOS™ platform?',
+        a: 'Your account manager will send you login credentials via email once your engagement is finalized. You can access the platform at portal.sustainabletalent.com. For security, we recommend enabling two-factor authentication on your first login.'
+      },
+      {
+        q: 'What information do I need to submit a new role?',
+        a: 'To submit a role, provide: job title, detailed description, required skills, location/timezone requirements, expected duration, rate range, and start date. The more detail you provide, the faster we can source quality candidates.'
+      },
+      {
+        q: 'How long does it take to fill a role?',
+        a: 'Timeline varies by role complexity and market. For technical roles, expect 2-4 weeks from intake to start date. For niche or senior roles, 4-6 weeks. Rush requests can be accommodated with 72-hour turnarounds in select markets.'
+      }
+    ]
+  },
+  {
+    category: 'Platform & Tools',
+    questions: [
+      {
+        q: 'Can I integrate TalentOS™ with our ATS or HRIS?',
+        a: 'Yes. TalentOS™ offers API integrations with major systems including Workday, SuccessFactors, Greenhouse, and Lever. We also support custom integrations via REST API. Contact your account manager to discuss integration requirements.'
+      },
+      {
+        q: 'How do I track candidate progress?',
+        a: 'Log into TalentOS™ and navigate to "Open Roles." You\'ll see real-time candidate status across all stages: sourcing, screening, interviewing, offer, and onboarding. You can filter by role, location, or stage.'
+      },
+      {
+        q: 'Where can I view consultant timesheets and invoices?',
+        a: 'Timesheets and invoices are available in the "Consultants" section under "Billing & Time Tracking." You can export reports by consultant, project, or date range in CSV or PDF format.'
+      }
+    ]
+  },
+  {
+    category: 'Compliance & Legal',
+    questions: [
+      {
+        q: 'How does Sustainable Talent ensure compliance?',
+        a: 'We maintain compliance through: local entity partnerships (ADP TotalSource in US, Deel globally), regular legal audits, worker classification reviews, and real-time compliance monitoring in TalentOS™. Our compliance team reviews every engagement before activation.'
+      },
+      {
+        q: 'What countries do you support?',
+        a: 'We support 150+ countries through our EOR partners. Coverage includes US, Canada, UK, EU, APAC, LATAM, and emerging markets. For specific country questions, contact our compliance team at compliance@sustainabletalent.com.'
+      },
+      {
+        q: 'Who handles contractor taxes and benefits?',
+        a: 'In the US, ADP TotalSource manages W2 employment, payroll, taxes, and benefits. Internationally, Deel and local entities handle contractor payments, local taxes, and statutory benefits per country requirements.'
+      }
+    ]
+  },
+  {
+    category: 'Billing & Payments',
+    questions: [
+      {
+        q: 'How does billing work?',
+        a: 'Billing is consolidated monthly. You receive one invoice covering all active consultants, including hourly/daily rates, markup, and any expenses. Invoices are issued within 5 business days of month-end. Payment terms are Net 30.'
+      },
+      {
+        q: 'What payment methods do you accept?',
+        a: 'We accept ACH, wire transfer, and credit card (for smaller engagements). International clients can pay via wire transfer in USD, EUR, or GBP. Contact billing@sustainabletalent.com for custom payment arrangements.'
+      },
+      {
+        q: 'Can I get a cost estimate before starting?',
+        a: 'Yes. During intake, we provide a detailed rate card and cost projection based on role requirements, location, and expected duration. Final costs depend on actual hours worked and any approved expenses.'
+      }
+    ]
+  }
+];
+
+// Help Articles
+const articles = [
+  {
+    title: 'Getting Started with TalentOS™',
+    excerpt: 'Learn how to navigate the platform, submit roles, and manage your contractor program from day one.',
+    category: 'Platform Guide',
+    readTime: '5 min',
+    icon: '🚀'
+  },
+  {
+    title: 'Submitting Your First Role',
+    excerpt: 'Step-by-step guide to creating a role requisition and what information you need to provide for best results.',
+    category: 'How-To',
+    readTime: '4 min',
+    icon: '📝'
+  },
+  {
+    title: 'Understanding Compliance Requirements',
+    excerpt: 'Overview of worker classification, contractor vs employee distinctions, and how we maintain compliance globally.',
+    category: 'Compliance',
+    readTime: '8 min',
+    icon: '⚖️'
+  },
+  {
+    title: 'Managing Active Consultants',
+    excerpt: 'How to view consultant details, track time, approve timesheets, and handle extensions or off-boarding.',
+    category: 'Management',
+    readTime: '6 min',
+    icon: '👥'
+  },
+  {
+    title: 'Billing & Invoice Management',
+    excerpt: 'Understanding your monthly invoice, payment terms, expense policies, and how to export financial reports.',
+    category: 'Billing',
+    readTime: '5 min',
+    icon: '💳'
+  },
+  {
+    title: 'Global EOR & Entity Setup',
+    excerpt: 'How we handle international contractors through Deel and local entities, including tax and benefit administration.',
+    category: 'Global Operations',
+    readTime: '7 min',
+    icon: '🌍'
+  }
+];
+---
+
+<MainLayout 
+  pageClass={pageClass}
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalUrl}
+>
+  <!-- HERO -->
+  <header class="support-hero">
+    <div class="hero-bg" data-parallax="0.3"></div>
+    <div class="container">
+      <div class="hero-content reveal scale-in">
+        <div class="pill">24/7 Enterprise Support</div>
+        <h1>How can we help you today?</h1>
+        <p class="subhead">
+          Find answers, explore help articles, or connect with our support team. We're here to ensure your talent operations run smoothly.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="search-icon">
+            <circle cx="11" cy="11" r="8" stroke-width="2"/>
+            <path d="m21 21-4.35-4.35" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input 
+            type="search" 
+            placeholder="Search for help articles, FAQs, or topics..." 
+            class="search-input"
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUICK ACTIONS -->
+  <section class="quick-actions-section">
+    <div class="container">
+      <div class="quick-actions-grid">
+        <a href="https://portal.sustainabletalent.com" target="_blank" rel="noopener noreferrer" class="action-card reveal scale-in">
+          <div class="action-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke-width="2"/>
+              <path d="M3 9h18" stroke-width="2"/>
+              <path d="M9 21V9" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="action-title">Access Portal</div>
+            <div class="action-desc">Log in to TalentOS™</div>
+          </div>
+        </a>
+
+        <a href="#contact-form" class="action-card reveal scale-in">
+          <div class="action-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <div class="action-title">Email Support</div>
+            <div class="action-desc">Get help via email</div>
+          </div>
+        </a>
+
+        <a href="tel:+16452022255" class="action-card reveal scale-in">
+          <div class="action-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </div>
+          <div>
+            <div class="action-title">Call Us</div>
+            <div class="action-desc">1 (645) 202-2255</div>
+          </div>
+        </a>
+
+        <a href={`${baseUrl}/insights`} class="action-card reveal scale-in">
+          <div class="action-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <div>
+            <div class="action-title">Insights</div>
+            <div class="action-desc">Read our latest articles</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HELP ARTICLES -->
+  <section class="articles-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <p class="kicker">Knowledge Base</p>
+          <h2>Popular Help Articles</h2>
+        </div>
+      </div>
+
+      <div class="articles-grid">
+        {articles.map(article => (
+          <article class="article-card reveal scale-in">
+            <div class="article-icon">{article.icon}</div>
+            <div class="article-category">{article.category}</div>
+            <h3>{article.title}</h3>
+            <p>{article.excerpt}</p>
+            <div class="article-footer">
+              <span class="read-time">{article.readTime}</span>
+              <a href="#" class="article-link">
+                Read Article
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <p class="kicker">Frequently Asked Questions</p>
+          <h2>Find answers to common questions</h2>
+        </div>
+      </div>
+
+      <div class="faq-grid">
+        {faqs.map((section, sectionIdx) => (
+          <div class="faq-category reveal">
+            <h3 class="faq-category-title">{section.category}</h3>
+            <div class="faq-list">
+              {section.questions.map((item, itemIdx) => (
+                <details class="faq-item" data-faq={`${sectionIdx}-${itemIdx}`}>
+                  <summary class="faq-question">
+                    <span>{item.q}</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="faq-chevron">
+                      <polyline points="6 9 12 15 18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>{item.a}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="contact-form-section" id="contact-form">
+    <div class="container">
+      <div class="form-wrapper reveal">
+        <div class="form-header">
+          <p class="kicker">Still need help?</p>
+          <h2>Contact Our Support Team</h2>
+          <p class="subhead">
+            Submit your question below and our support team will respond within 4 business hours. For urgent issues, call us at 1 (645) 202-2255.
+          </p>
+        </div>
+
+        <form class="support-form" action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" />
+            </div>
+            <div class="form-group">
+              <label for="category">Issue Category *</label>
+              <select id="category" name="category" required>
+                <option value="">Select a category</option>
+                <option value="platform">Platform & Tools</option>
+                <option value="role">Role Submission</option>
+                <option value="candidate">Candidate Management</option>
+                <option value="consultant">Consultant Support</option>
+                <option value="billing">Billing & Payments</option>
+                <option value="compliance">Compliance & Legal</option>
+                <option value="technical">Technical Issue</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" class="btn primary">
+              Submit Request
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <p class="form-note">We typically respond within 4 business hours</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT HOURS -->
+  <section class="support-hours-section">
+    <div class="container">
+      <div class="support-hours-card reveal">
+        <div class="hours-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <polyline points="12 6 12 12 16 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="hours-content">
+          <h3>Support Hours</h3>
+          <div class="hours-grid">
+            <div class="hours-item">
+              <div class="hours-label">Email Support</div>
+              <div class="hours-value">24/7 - Response within 4 hours</div>
+            </div>
+            <div class="hours-item">
+              <div class="hours-label">Phone Support</div>
+              <div class="hours-value">Mon-Fri, 9am-6pm EST</div>
+            </div>
+            <div class="hours-item">
+              <div class="hours-label">Emergency Line</div>
+              <div class="hours-value">24/7 for critical issues</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  .support-hero {
+    padding: 120px 0 80px;
+    background: var(--bg-section);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: -40% -20% auto -20%;
+    height: 520px;
+    background: linear-gradient(120deg, rgba(99,102,241,0.08), transparent 62%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border-light);
+    background: rgba(255,255,255,0.70);
+    color: var(--text-secondary);
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    box-shadow: 0 10px 22px rgba(15,23,42,0.05);
+    margin-bottom: 24px;
+  }
+
+  .support-hero h1 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin: 0 0 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .subhead {
+    margin: 0 0 40px;
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Search Bar */
+  .search-bar {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  .search-input {
+    width: 100%;
+    height: 56px;
+    padding: 0 24px 0 52px;
+    border-radius: 999px;
+    border: 1px solid var(--border-light);
+    background: rgba(255,255,255,0.85);
+    color: var(--text-primary);
+    font-size: 15px;
+    outline: none;
+    box-shadow: 0 16px 40px rgba(15,23,42,0.10);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 20px 50px rgba(99, 102, 241, 0.20), 
+          0 0 0 4px rgba(99, 102, 241, 0.08);
+    background: rgba(255,255,255,0.95);
+  }
+
+  .search-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  /* Quick Actions */
+  .quick-actions-section {
+    padding: 80px 0;
+    background: var(--bg-page);
+  }
+
+  .quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .action-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-glass);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .action-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15,23,42,0.12);
+    border-color: rgba(99,102,241,0.2);
+  }
+
+  .action-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    border: 1px solid var(--border-light);
+    background: 
+      radial-gradient(50px 50px at 30% 30%, rgba(99,102,241,0.08), transparent 60%),
+      rgba(255,255,255,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .action-card:hover .action-icon {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .action-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .action-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* Articles Section */
+  .articles-section {
+    padding: 80px 0;
+    background: var(--bg-section);
+  }
+
+  .section-header {
+    margin-bottom: 48px;
+  }
+
+  .kicker {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-size: 12px;
+    margin: 0 0 10px;
+  }
+
+  .section-header h2 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: -0.4px;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .article-card {
+    padding: 28px;
+    border-radius: 24px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-glass);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15,23,42,0.12);
+    border-color: rgba(99,102,241,0.2);
+  }
+
+  .article-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .article-category {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .article-card h3 {
+    font-size: 18px;
+    margin: 0 0 12px;
+    letter-spacing: -0.2px;
+    line-height: 1.3;
+  }
+
+  .article-card p {
+    margin: 0 0 20px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .read-time {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .article-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+
+  .article-link:hover {
+    gap: 10px;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 80px 0;
+    background: var(--bg-page);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .faq-category {
+    border-radius: 24px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-glass);
+    padding: 32px;
+    box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .faq-category-title {
+    font-size: 22px;
+    margin: 0 0 24px;
+    letter-spacing: -0.3px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    background: rgba(255,255,255,0.6);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-item:hover {
+    border-color: rgba(99,102,241,0.2);
+    background: rgba(255,255,255,0.85);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-primary);
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--accent);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 22px 20px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  .faq-answer p {
+    margin: 0;
+  }
+
+  /* Contact Form */
+  .contact-form-section {
+    padding: 80px 0;
+    background: var(--bg-section);
+  }
+
+  .form-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 32px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-glass);
+    padding: 48px;
+    box-shadow: 0 28px 70px rgba(15,23,42,0.10);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .form-header h2 {
+    margin: 0 0 12px;
+    font-size: 32px;
+    letter-spacing: -0.4px;
+  }
+
+  .form-header .subhead {
+    margin: 0;
+  }
+
+  .support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    background: rgba(255,255,255,0.85);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+    background: rgba(255,255,255,0.95);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn.primary {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 16px 30px rgba(99,102,241,0.20);
+  }
+
+  .btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(99,102,241,0.30);
+    filter: brightness(0.96);
+  }
+
+  .form-note {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* Support Hours */
+  .support-hours-section {
+    padding: 60px 0 80px;
+    background: var(--bg-page);
+  }
+
+  .support-hours-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 40px;
+    border-radius: 28px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-glass);
+    box-shadow: 0 20px 40px rgba(15,23,42,0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .hours-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
+    background: 
+      radial-gradient(60px 60px at 30% 30%, rgba(99,102,241,0.08), transparent 60%),
+      rgba(255,255,255,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .hours-content {
+    flex: 1;
+  }
+
+  .hours-content h3 {
+    margin: 0 0 24px;
+    font-size: 24px;
+    letter-spacing: -0.3px;
+  }
+
+  .hours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .hours-item {
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid var(--border-light);
+  }
+
+  .hours-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .hours-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* Reveal Animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .quick-actions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hours-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .support-hero {
+      padding: 100px 0 60px;
+    }
+
+    .support-hero h1 {
+      font-size: 36px;
+    }
+
+    .quick-actions-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .action-card {
+      flex-direction: row;
+    }
+
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .form-wrapper {
+      padding: 32px 24px;
+    }
+
+    .form-footer {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .support-hours-card {
+      flex-direction: column;
+      padding: 28px;
+    }
+
+    .hours-icon {
+      margin: 0 auto;
+    }
+  }
+</style>
+
+<script>
+  // Reveal on scroll
+  const els = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+
+  // Search functionality (basic filter)
+  const searchInput = document.querySelector('.search-input') as HTMLInputElement;
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = (e.target as HTMLInputElement).value.toLowerCase();
+      const articles = document.querySelectorAll('.article-card');
+      const faqs = document.querySelectorAll('.faq-item');
+
+      // Filter articles
+      articles.forEach(article => {
+        const text = article.textContent?.toLowerCase() || '';
+        (article as HTMLElement).style.display = text.includes(query) ? 'block' : 'none';
+      });
+
+      // Filter FAQs
+      faqs.forEach(faq => {
+        const text = faq.textContent?.toLowerCase() || '';
+        (faq as HTMLElement).style.display = text.includes(query) ? 'block' : 'none';
+      });
+    });
+  }
+</script>

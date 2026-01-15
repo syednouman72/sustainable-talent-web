@@ -1,0 +1,131 @@
+
+
+
+
+
+---
+import '../../generated/fonts.css';
+import '../site-components/global.css';
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
+import AnimationEnhancer from '../components/AnimationEnhancer.astro';
+
+const { 
+  pageClass = '',
+  title = 'Sustainable Talent | Global Talent Operating System',
+  description = 'Build and run your global contractor and recruiting engine. Powered by TalentOS™ for real-time visibility, compliance, and program health.',
+  ogImage = 'https://sustainabletalent.com/og-image.jpg',
+  canonicalUrl
+} = Astro.props;
+
+const fullTitle = title.includes('Sustainable Talent') ? title : `${title} | Sustainable Talent`;
+const currentUrl = canonicalUrl || Astro.url.pathname;
+---
+
+<html lang="en" class={pageClass}>
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="/favicon.ico" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<meta name="keywords" content="talent operations, recruiting, contingent workforce, vendor service provider, TalentOS, global employment, ADP, Deel, enterprise recruiting" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Sustainable Talent" />
+
+<!-- Canonical URL -->
+{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={currentUrl} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:site_name" content="Sustainable Talent" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={currentUrl} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Structured Data (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sustainable Talent",
+  "url": "https://sustainabletalent.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://sustainabletalent.com/logo.png"
+  },
+  "description": "Global workforce solutions, powered by TalentOS™. Enabled by AI and guided by people.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1200 Brickell Avenue, Suite 1950 #1170",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "postalCode": "33131",
+    "addressCountry": "US"
+  },
+  "email": "talent@sustainabletalent.com",
+  "telephone": "+1-645-202-2255",
+  "sameAs": [
+    "https://www.linkedin.com/company/sustainable-talent",
+    "https://portal.sustainabletalent.com/"
+  ],
+  "foundingDate": "2020",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-645-202-2255",
+    "contactType": "Customer Service",
+    "email": "talent@sustainabletalent.com",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English"]
+  }
+}
+</script>
+
+<!-- Analytics -->
+<Analytics />
+
+<!-- Additional SEO Tags -->
+<meta name="theme-color" content="#6366F1" />
+<meta name="msapplication-TileColor" content="#6366F1" />
+</head>
+<body class="__DARK_MODE_CLASS__">
+    <Navigation />
+    <slot />
+    <Footer />
+    <AnimationEnhancer />
+  </body>
+</html>
+
+<style is:global>
+  /* Page-specific overrides */
+  html.splash main { 
+    display: flex !important; 
+  }
+  
+  html.splash ol,
+  html.splash ul { 
+    padding-left: 0 !important; 
+    margin: 0 !important; 
+  }
+</style>
+
+
+
+
+
+
+

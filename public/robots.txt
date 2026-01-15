@@ -1,0 +1,12 @@
+# robots.txt for Sustainable Talent
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sustainabletalent.com/sitemap.xml
+
+# Disallow admin/internal pages if any
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /internal/

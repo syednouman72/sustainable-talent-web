@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainable Talent | Demo</title>
+  
+  <style>
+    :root {
+      --bg-page: #F6F7F9;
+      --bg-surface: #FFFFFF;
+      --text-primary: #0F172A;
+      --text-muted: #64748B;
+      --border-light: rgba(15, 23, 42, 0.08);
+      --accent: #6366F1;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Logo Marquee - Now at top! */
+    .logo-strip {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--bg-surface);
+      overflow: hidden;
+    }
+    
+    .logo-marquee {
+      display: flex;
+      align-items: center;
+      gap: 72px;
+      animation: marquee 26s linear infinite;
+      will-change: transform;
+    }
+    
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    
+    .logo-marquee img {
+      height: 50px;
+      width: auto;
+      opacity: 0.65;
+      filter: grayscale(100%);
+      transition: all 0.3s ease;
+    }
+    
+    .logo-marquee img:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+    
+    /* Hero */
+    .hero {
+      padding: 96px 0;
+    }
+    
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    
+    .subhead {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    
+    /* Product Frame */
+    .product-frame {
+      border-radius: 28px;
+      border: 1px solid var(--border-light);
+      background: white;
+      box-shadow: 0 28px 70px rgba(15,23,42,0.10);
+      overflow: hidden;
+    }
+    
+    .product-topbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    .product-body {
+      padding: 16px;
+    }
+    
+    .ui-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    
+    .ui-card {
+      border-radius: 16px;
+      border: 1px solid var(--border-light);
+      background: rgba(255,255,255,0.7);
+      padding: 14px;
+      min-height: 110px;
+    }
+    
+    .ui-wide {
+      grid-column: 1 / -1;
+      min-height: 170px;
+    }
+    
+    .ui-title {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .ui-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    /* Animated Bars */
+    .bars {
+      margin-top: 12px;
+      display: grid;
+      gap: 8px;
+    }
+    
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.06);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+    }
+    
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, 
+        rgba(99,102,241,0.85), 
+        rgba(56,189,248,0.75));
+      border-radius: 999px;
+      animation: fillBar 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    @keyframes fillBar {
+      to { width: var(--bar-width); }
+    }
+    
+    .bar:nth-child(1) > span { 
+      --bar-width: 60%;
+      animation-delay: 0.2s;
+    }
+    
+    .bar:nth-child(2) > span { 
+      --bar-width: 42%;
+      animation-delay: 0.4s;
+    }
+    
+    .bar:nth-child(3) > span { 
+      --bar-width: 78%;
+      animation-delay: 0.6s;
+    }
+    
+    .bar:nth-child(4) > span { 
+      --bar-width: 55%;
+      animation-delay: 0.8s;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 12px;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- LOGO MARQUEE AT TOP -->
+  <section class="logo-strip">
+    <div class="container">
+      <div class="logo-marquee">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413546fff7c30034eda20_nvidia.svg" alt="Nvidia">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541351c4a5ed344bb4da30_ford.svg" alt="Ford">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413529ffcdf7a0f1756b3_mongodb.svg" alt="MongoDB">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541352d2c166a97377dc63_microsoft.svg" alt="Microsoft">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/6954134f7bb5c15903761362_amazon.svg" alt="Amazon">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/6954134e9bb8e35d95ebd4bb_aws.svg" alt="AWS">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413545df609a677ab6875_uber.svg" alt="Uber">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/6954134e330dcefc229d37c6_box.svg" alt="Box">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541352349ac47e6b04bfaa_nike.svg" alt="Nike">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/6954135081b8d2722a77cefa_dyson.svg" alt="Dyson">
+        
+        <!-- Duplicate for seamless loop -->
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413546fff7c30034eda20_nvidia.svg" alt="">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541351c4a5ed344bb4da30_ford.svg" alt="">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413529ffcdf7a0f1756b3_mongodb.svg" alt="">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541352d2c166a97377dc63_microsoft.svg" alt="">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/6954134f7bb5c15903761362_amazon.svg" alt="">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/6954134e9bb8e35d95ebd4bb_aws.svg" alt="">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413545df609a677ab6875_uber.svg" alt="">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/6954134e330dcefc229d37c6_box.svg" alt="">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541352349ac47e6b04bfaa_nike.svg" alt="">
+        <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/6954135081b8d2722a77cefa_dyson.svg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <h1>Global talent operating system for modern teams</h1>
+          <p class="subhead">
+            We build and run your global contractor and recruiting engine. Powered by TalentOS™ for real-time visibility, compliance, and program health.
+          </p>
+          <a href="#" class="btn">Get Started</a>
+          <a href="#" class="btn">Explore TalentOS™</a>
+        </div>
+        
+        <div class="product-frame">
+          <div class="product-topbar">
+            <div>TalentOS™ - Global Program View</div>
+            <div>Live</div>
+          </div>
+          
+          <div class="product-body">
+            <div class="ui-grid">
+              <div class="ui-card">
+                <div class="ui-title">
+                  <span>Open roles</span>
+                  <span>Active</span>
+                </div>
+                <div class="ui-value">42</div>
+              </div>
+              
+              <div class="ui-card">
+                <div class="ui-title">
+                  <span>Compliance health</span>
+                  <span>Good</span>
+                </div>
+                <div class="ui-value">98%</div>
+              </div>
+              
+              <div class="ui-card ui-wide">
+                <div class="ui-title">
+                  <span>Pipeline velocity</span>
+                  <span>Weekly</span>
+                </div>
+                <div class="bars">
+                  <div class="bar"><span></span></div>
+                  <div class="bar"><span></span></div>
+                  <div class="bar"><span></span></div>
+                  <div class="bar"><span></span></div>
+                </div>
+                <div style="margin-top:12px; font-size:12px; color: var(--text-muted);">
+                  Intake → shortlist → interview → offer → start (single workflow).
+                </div>
+              </div>
+              
+              <div class="ui-card">
+                <div class="ui-title">
+                  <span>Active consultants</span>
+                  <span>Global</span>
+                </div>
+                <div class="ui-value">186</div>
+              </div>
+              
+              <div class="ui-card">
+                <div class="ui-title">
+                  <span>Country coverage</span>
+                  <span>EOR</span>
+                </div>
+                <div class="ui-value">150+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

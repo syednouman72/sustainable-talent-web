@@ -1,0 +1,971 @@
+---
+import MainLayout from '../layouts/main.astro';
+import { baseUrl } from '../lib/base-url';
+
+const pageClass = 'case-studies';
+---
+
+<MainLayout pageClass={pageClass}>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="pill">Case Studies</div>
+      <h1>Proven results across enterprise programs</h1>
+      <p class="subhead">
+        Real engagements, real metrics, and the operating principles that made them work. We focus on signal, calibration, and feedback loops—so you get better outcomes without adding chaos.
+      </p>
+      
+      <div class="stats-row">
+        <div class="stat-badge">
+          <div class="stat-num">38%</div>
+          <div class="stat-label">Submission → interview</div>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-num">92%</div>
+          <div class="stat-label">Offer acceptance</div>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-num">4.8/5</div>
+          <div class="stat-label">Employee satisfaction</div>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Customer satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NVIDIA FEATURED CASE STUDY -->
+<section class="section" id="nvidia">
+  <div class="container">
+    <div class="featured-case reveal">
+      <div class="case-header">
+        <div>
+          <div class="pill">Featured engagement</div>
+          <h2 style="margin-top:12px;">Nvidia - Contractor and recruiting engine, tuned for velocity</h2>
+          <p class="lead" style="margin-top:10px;">
+            A representative enterprise program where Sustainable Talent ran end-to-end delivery for technical and professional roles while maintaining strict compliance and a consistent talent experience.
+          </p>
+        </div>
+        <div class="company-logo">
+          <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413546fff7c30034eda20_nvidia.svg" alt="Nvidia" loading="lazy" style="height:60px; opacity:0.9; filter:grayscale(40%);" />
+        </div>
+      </div>
+
+      <div class="case-metrics">
+        <div class="metric-card reveal">
+          <div class="metric-label">Submission → interview</div>
+          <div class="metric-value">38%</div>
+          <div class="metric-context">Industry average: 15-20%</div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-label">Offer acceptance rate</div>
+          <div class="metric-value">92%</div>
+          <div class="metric-context">Strong candidate experience</div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-label">Employee satisfaction</div>
+          <div class="metric-value">4.8/5</div>
+          <div class="metric-context">Consistent, trusted delivery</div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-label">Performance rating</div>
+          <div class="metric-value">4.8/5</div>
+          <div class="metric-context">Quality over volume</div>
+        </div>
+      </div>
+
+      <div class="case-story">
+        <div class="story-section reveal">
+          <div class="story-tag">Challenge</div>
+          <h3>Too much noise, not enough signal</h3>
+          <p>
+            High submission volume but weak conversion. Hiring managers were spending more time reviewing resumes than interviewing candidates. The intake process lacked structure, and feedback loops were slow—so the engine couldn't learn or improve.
+          </p>
+        </div>
+
+        <div class="story-section reveal">
+          <div class="story-tag">Solution</div>
+          <h3>Calibration, structure, and fast feedback</h3>
+          <p>
+            We tightened the intake process to align on "must-haves" vs "nice-to-haves," built a structured screening rubric focused on signal over keywords, and implemented weekly calibration sessions with hiring managers. TalentOS™ gave real-time visibility into bottlenecks, and we established fast feedback SLAs so the pipeline stayed tight.
+          </p>
+          <ul class="bullets">
+            <li>Intake alignment on must-haves, deal breakers, and bar</li>
+            <li>Structured screening rubric (signal-first, not keyword-first)</li>
+            <li>Weekly calibration + fast feedback SLAs</li>
+            <li>Shortlists built around impact evidence, not just resumes</li>
+            <li>TalentOS™ visibility surfaced bottlenecks instantly</li>
+          </ul>
+        </div>
+
+        <div class="story-section reveal">
+          <div class="story-tag">Results</div>
+          <h3>38% submission to interview, 92% offer acceptance</h3>
+          <p>
+            By reducing noise and increasing signal, we hit 38% submission to interview—more than double the industry average. Offer acceptance stayed high at 92% because candidates received a consistent, transparent experience. Hiring managers spent less time reviewing and more time interviewing the right people.
+          </p>
+          <div class="results-grid">
+            <div class="result-item">
+              <div class="result-icon">✓</div>
+              <div>
+                <div class="result-title">Better conversion</div>
+                <div class="result-text">38% submission → interview (vs 15-20% average)</div>
+              </div>
+            </div>
+            <div class="result-item">
+              <div class="result-icon">✓</div>
+              <div>
+                <div class="result-title">High acceptance</div>
+                <div class="result-text">92% offer acceptance through clear process</div>
+              </div>
+            </div>
+            <div class="result-item">
+              <div class="result-icon">✓</div>
+              <div>
+                <div class="result-title">Consistent experience</div>
+                <div class="result-text">4.8/5 employee and performance ratings</div>
+              </div>
+            </div>
+            <div class="result-item">
+              <div class="result-icon">✓</div>
+              <div>
+                <div class="result-title">Manager efficiency</div>
+                <div class="result-text">Fewer submissions, better signal, faster decisions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADDITIONAL CASE STUDIES (LIGHT) -->
+<section class="section light" id="more-cases">
+  <div class="container">
+    <p class="kicker reveal">More customer stories</p>
+    <h2 class="reveal">Proven delivery across industries and functions</h2>
+    <p class="lead reveal">
+      Same principles, different challenges. Whether it's scaling contractors globally, embedding recruiters for surges, or executive search—we deliver predictable outcomes.
+    </p>
+
+    <div class="case-grid">
+      <div class="case-card pop reveal" tabindex="0">
+        <div class="case-company">
+          <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541351c4a5ed344bb4da30_ford.svg" alt="Ford" loading="lazy" style="height:44px; opacity:0.75; filter:grayscale(60%);" />
+        </div>
+        <h3>Ford - Global contractor scaling</h3>
+        <p class="case-summary">
+          Scaled a global contractor program across 12 countries with clean governance, local compliance, and consistent talent experience. Program health visibility kept renewals predictable and risk low.
+        </p>
+        <div class="case-outcomes">
+          <div class="outcome-item">
+            <span class="outcome-label">Coverage:</span>
+            <span class="outcome-value">12 countries</span>
+          </div>
+          <div class="outcome-item">
+            <span class="outcome-label">Model:</span>
+            <span class="outcome-value">W2 (US) + Deel (Global)</span>
+          </div>
+          <div class="outcome-item">
+            <span class="outcome-label">Outcome:</span>
+            <span class="outcome-value">Clean governance at scale</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card pop reveal" tabindex="0">
+        <div class="case-company">
+          <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413529ffcdf7a0f1756b3_mongodb.svg" alt="MongoDB" loading="lazy" style="height:44px; opacity:0.75; filter:grayscale(60%);" />
+        </div>
+        <h3>MongoDB - Recruiting surge support</h3>
+        <p class="case-summary">
+          Embedded recruiters for a 6-month surge across engineering and GTM roles. Hit 35% submission to interview through tight calibration and delivered 22 hires in 90 days without permanent headcount.
+        </p>
+        <div class="case-outcomes">
+          <div class="outcome-item">
+            <span class="outcome-label">Conversion:</span>
+            <span class="outcome-value">35% submission → interview</span>
+          </div>
+          <div class="outcome-item">
+            <span class="outcome-label">Speed:</span>
+            <span class="outcome-value">22 hires in 90 days</span>
+          </div>
+          <div class="outcome-item">
+            <span class="outcome-label">Outcome:</span>
+            <span class="outcome-value">Velocity without chaos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card pop reveal" tabindex="0">
+        <div class="case-company">
+          <img src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541352d2c166a97377dc63_microsoft.svg" alt="Microsoft" loading="lazy" style="height:44px; opacity:0.75; filter:grayscale(60%);" />
+        </div>
+        <h3>Microsoft - Executive search</h3>
+        <p class="case-summary">
+          Delivered a VP of Engineering hire in 45 days through targeted outreach, market mapping, and stakeholder-ready narratives. High-signal shortlist with confidential, high-touch candidate experience.
+        </p>
+        <div class="case-outcomes">
+          <div class="outcome-item">
+            <span class="outcome-label">Speed:</span>
+            <span class="outcome-value">45 days to offer</span>
+          </div>
+          <div class="outcome-item">
+            <span class="outcome-label">Shortlist:</span>
+            <span class="outcome-value">3 finalists, 1 hired</span>
+          </div>
+          <div class="outcome-item">
+            <span class="outcome-label">Outcome:</span>
+            <span class="outcome-value">Leadership hire that sticks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE CONSISTENTLY HIT THESE NUMBERS -->
+<section class="section" id="how">
+  <div class="container">
+    <p class="kicker reveal">Operating principles</p>
+    <h2 class="reveal">How we consistently hit these numbers</h2>
+    <p class="lead reveal">
+      Great outcomes come from repeatable systems, not magic. Here's what we do differently.
+    </p>
+
+    <div class="principles-grid">
+      <div class="principle-card reveal">
+        <div class="principle-number">01</div>
+        <div>
+          <h3>Calibration over volume</h3>
+          <p>We define "good" with the hiring team before we start sourcing. That alignment is how you beat 15-20% averages and hit 30-40%.</p>
+        </div>
+      </div>
+
+      <div class="principle-card reveal">
+        <div class="principle-number">02</div>
+        <div>
+          <h3>Signal-first screening</h3>
+          <p>We screen for impact evidence and context, not keyword matches. That's why our shortlists convert and hiring managers trust the process.</p>
+        </div>
+      </div>
+
+      <div class="principle-card reveal">
+        <div class="principle-number">03</div>
+        <div>
+          <h3>Fast feedback loops</h3>
+          <p>We build approvals and refinements into the workflow so the engine learns quickly. Weekly calibration + fast SLAs keep the pipeline tight.</p>
+        </div>
+      </div>
+
+      <div class="principle-card reveal">
+        <div class="principle-number">04</div>
+        <div>
+          <h3>Real-time visibility</h3>
+          <p>TalentOS™ surfaces bottlenecks and aging instantly. Leaders see what's moving, what's stuck, and what needs attention without hunting through spreadsheets.</p>
+        </div>
+      </div>
+
+      <div class="principle-card reveal">
+        <div class="principle-number">05</div>
+        <div>
+          <h3>Consistent experience</h3>
+          <p>Consultants and candidates get the same high-quality experience across engagements. That's why satisfaction stays at 4.8/5 and offer acceptance at 92%.</p>
+        </div>
+      </div>
+
+      <div class="principle-card reveal">
+        <div class="principle-number">06</div>
+        <div>
+          <h3>Clean governance</h3>
+          <p>Compliance, documentation, and renewals are tracked in the platform. Less chaos, fewer surprises, smoother audits.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section light" id="get-started">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div>
+        <p class="kicker">Build your own case study</p>
+        <h2 style="margin-bottom:10px;">Let's design a program that delivers</h2>
+        <p>
+          Share your hiring goals, timelines, and challenges. We'll send a quick model overview and show you what predictable outcomes look like for your team.
+        </p>
+        <div class="helper">One thoughtful follow-up. No spam.</div>
+      </div>
+
+      <form class="form" action="#" method="post">
+        <input class="input" type="email" name="email" placeholder="Enter your email address" required />
+        <button class="btn primary" type="submit">Get started</button>
+      </form>
+    </div>
+  </div>
+</section>
+</MainLayout>
+
+<style>
+/* Hero */
+.hero {
+  padding: 92px 0 56px;
+  background: var(--bg-section);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: -200px -200px auto -200px;
+  height: 520px;
+  background: linear-gradient(120deg, rgba(99, 102, 241, 0.08), transparent 55%);
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary);
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+}
+
+.subhead {
+  margin: 0 auto 18px;
+  color: var(--text-secondary);
+  font-size: 18px;
+  max-width: 78ch;
+}
+
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-badge {
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-glass);
+  padding: 16px 22px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(8px);
+  min-width: 140px;
+}
+
+.stat-num {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.2px;
+}
+
+/* Sections */
+.section {
+  padding: 96px 0;
+  background: var(--bg-section);
+}
+
+.section.light {
+  position: relative;
+  background:
+    radial-gradient(1100px 520px at 15% 10%, rgba(99, 102, 241, 0.08), transparent 60%),
+    radial-gradient(1100px 520px at 85% 0%, rgba(99, 102, 241, 0.06), transparent 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.90), rgba(245, 246, 248, 0.85));
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.kicker {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.lead {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  max-width: 90ch;
+}
+
+/* Featured Case */
+.featured-case {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-glass);
+  padding: 34px;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.10);
+  backdrop-filter: blur(8px);
+}
+
+.case-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: start;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.company-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.60);
+}
+
+.case-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.metric-card {
+  border-radius: 22px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.65);
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.metric-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+}
+
+.metric-value {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.metric-context {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.case-story {
+  margin-top: 34px;
+  display: grid;
+  gap: 28px;
+}
+
+.story-section {
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.50);
+  backdrop-filter: blur(8px);
+}
+
+.story-tag {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.70);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.story-section h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.story-section p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.bullets {
+  margin: 16px 0 0;
+  padding: 0 0 0 18px;
+  color: var(--text-secondary);
+}
+
+.bullets li {
+  margin: 10px 0;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.result-item {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.70);
+}
+
+.result-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.15);
+  color: rgba(34, 197, 94, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.result-title {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.result-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Case Grid */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.case-card {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-glass);
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-company {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.60);
+  min-height: 72px;
+}
+
+.case-card h3 {
+  font-size: 18px;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.case-summary {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.case-outcomes {
+  display: grid;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.outcome-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.outcome-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.outcome-value {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Pop Effect */
+.pop {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  cursor: default;
+}
+
+.pop:before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(700px 260px at 18% 18%, rgba(99, 102, 241, 0.10), transparent 60%),
+    radial-gradient(700px 260px at 82% 40%, rgba(56, 189, 248, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.pop:after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  border-radius: 999px;
+  background: conic-gradient(from 180deg, rgba(99, 102, 241, 0.00), rgba(99, 102, 241, 0.08), rgba(56, 189, 248, 0.08), rgba(99, 102, 241, 0.00));
+  filter: blur(32px);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.pop:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+}
+
+.section.light .pop:hover {
+  border-color: rgba(15, 23, 42, 0.18);
+  background: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 28px 78px rgba(15, 23, 42, 0.14);
+}
+
+.pop:hover:before {
+  opacity: 1;
+}
+
+.pop:hover:after {
+  opacity: 0.5;
+}
+
+.pop:focus-within {
+  outline: none;
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(99, 102, 241, 0.30);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+}
+
+/* Principles Grid */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.principle-card {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-glass);
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(8px);
+  display: flex;
+  gap: 18px;
+  align-items: start;
+}
+
+.principle-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(99, 102, 241, 0.10);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.principle-card h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: var(--text-primary);
+}
+
+.principle-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* CTA Card */
+.cta-card {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background:
+    radial-gradient(900px 260px at 50% 0%, rgba(99, 102, 241, 0.10), transparent 70%),
+    radial-gradient(900px 260px at 50% 100%, rgba(56, 189, 248, 0.08), transparent 70%),
+    var(--bg-glass);
+  padding: 34px;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.10);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.cta-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  max-width: 70ch;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.input {
+  flex: 1 1 220px;
+  min-width: 200px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  padding: 0 14px;
+  outline: none;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+}
+
+.input::placeholder {
+  color: rgba(71, 85, 105, 0.70);
+}
+
+.helper {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, filter 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+.btn.primary {
+  border-color: transparent;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 16px 30px rgba(99, 102, 241, 0.18);
+}
+
+.btn.primary:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+/* Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1020px) {
+  .case-header {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .company-logo {
+    justify-content: flex-start;
+  }
+
+  .case-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .hero {
+    padding: 78px 0 38px;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .stats-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stat-badge {
+    min-width: auto;
+  }
+
+  .case-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-case {
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pop,
+  .pop:before,
+  .pop:after {
+    transition: none;
+  }
+
+  .pop:hover {
+    transform: none;
+  }
+}
+</style>
+
+<script>
+  // Reveal on scroll
+  const els = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+</script>

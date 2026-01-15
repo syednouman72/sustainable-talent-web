@@ -1,0 +1,288 @@
+---
+import MainLayout from '../layouts/main.astro';
+import { baseUrl } from '../lib/base-url';
+
+const pageClass = '404';
+---
+
+<MainLayout pageClass={pageClass}>
+<!-- 404 HERO -->
+<section class="section-404">
+  <div class="container">
+    <div class="error-content reveal">
+      <div class="error-visual" aria-hidden="true">
+        <div class="error-number">404</div>
+        <div class="error-glow"></div>
+      </div>
+
+      <div class="pill">Page not found</div>
+      <h1>This page took an unexpected detour.</h1>
+      <p class="lead">
+        The page you're looking for doesn't exist or may have been moved. 
+        Let's get you back on track - our platform is built for clarity, after all.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href={baseUrl || '/'}>Go Home</a>
+        <a class="btn" href={`${baseUrl}/contact`}>Contact Support</a>
+      </div>
+
+      <div class="helper-links">
+        <div class="helper-title">Popular pages:</div>
+        <div class="links-grid">
+          <a href={`${baseUrl}/platform`} class="link-card">
+            <div class="link-icon">🚀</div>
+            <div>
+              <div class="link-title">Platform</div>
+              <div class="link-desc">TalentOS™ and features</div>
+            </div>
+          </a>
+
+          <a href={`${baseUrl}/solutions`} class="link-card">
+            <div class="link-icon">⚡</div>
+            <div>
+              <div class="link-title">Solutions</div>
+              <div class="link-desc">How we work with you</div>
+            </div>
+          </a>
+
+          <a href={`${baseUrl}/careers`} class="link-card">
+            <div class="link-icon">💼</div>
+            <div>
+              <div class="link-title">Careers</div>
+              <div class="link-desc">Join our team</div>
+            </div>
+          </a>
+
+          <a href={`${baseUrl}/case-studies`} class="link-card">
+            <div class="link-icon">📊</div>
+            <div>
+              <div class="link-title">Case Studies</div>
+              <div class="link-desc">Customer stories</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</MainLayout>
+
+<style>
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-404 {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 96px 0;
+  background: var(--bg-section);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-404:before {
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto -20%;
+  height: 520px;
+  background: linear-gradient(120deg, rgba(99,102,241,0.08), transparent 62%);
+  pointer-events: none;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.error-visual {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.error-number {
+  font-size: clamp(80px, 15vw, 160px);
+  font-weight: 900;
+  letter-spacing: -4px;
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+.error-glow {
+  position: absolute;
+  inset: 20% 25%;
+  background: radial-gradient(circle, rgba(99,102,241,0.20), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255,255,255,0.70);
+  color: var(--text-secondary);
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(15,23,42,0.05);
+  margin-bottom: 16px;
+}
+
+h1 {
+  margin-bottom: 16px;
+}
+
+.lead {
+  margin: 0 auto 32px;
+  color: var(--text-secondary);
+  font-size: 18px;
+  max-width: 60ch;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 auto 48px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--border-light);
+  background: rgba(255,255,255,0.85);
+  color: var(--text-primary);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, filter .15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(15,23,42,0.06);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.95);
+  border-color: rgba(15,23,42,0.12);
+}
+
+.btn.primary {
+  border-color: transparent;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 16px 30px rgba(99,102,241,0.18);
+}
+
+.btn.primary:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+.helper-links {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-light);
+}
+
+.helper-title {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 16px;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-glass);
+  text-align: left;
+  transition: all .2s ease;
+  box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+  backdrop-filter: blur(8px);
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15,23,42,0.10);
+  border-color: rgba(15,23,42,0.12);
+}
+
+.link-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.link-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.link-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-404 {
+    padding: 72px 0;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .links-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</MainLayout>

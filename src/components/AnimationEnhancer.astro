@@ -1,0 +1,213 @@
+
+
+---
+// Global animation enhancement component
+// Include this in the main layout to enable enhanced animations site-wide
+---
+
+<script>
+  // Enhanced reveal animation with intersection observer
+  function initRevealAnimations() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Add a slight delay for smoother appearance
+          setTimeout(() => {
+            entry.target.classList.add('in');
+          }, 50);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    reveals.forEach((el) => observer.observe(el));
+  }
+
+  // Add parallax effect to hero sections
+  function initParallax() {
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    
+    if (parallaxElements.length === 0) return;
+    
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          
+          parallaxElements.forEach((el) => {
+            const speed = parseFloat(el.getAttribute('data-parallax') || '0.5');
+            const yPos = -(scrolled * speed);
+            el.style.transform = `translateY(${yPos}px)`;
+          });
+          
+          ticking = false;
+        });
+        
+        ticking = true;
+      }
+    });
+  }
+
+  // Add smooth hover effect to cards
+  function initCardTilt() {
+    const cards = document.querySelectorAll('.card-glass, .panel, .feature');
+    
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 30;
+        const rotateY = (centerX - x) / 30;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+      });
+    });
+  }
+
+  // Add magnetic effect to buttons
+  function initMagneticButtons() {
+    const buttons = document.querySelectorAll('.btn-primary, .btn');
+    
+    buttons.forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.02)`;
+      });
+      
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0) scale(1)';
+      });
+    });
+  }
+
+  // Animate numbers counting up
+  function animateCounters() {
+    const counters = document.querySelectorAll('[data-counter]');
+    
+    const observerOptions = {
+      threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const targetValue = parseFloat(target.getAttribute('data-counter') || '0');
+          const duration = 2000;
+          const step = targetValue / (duration / 16);
+          let current = 0;
+          
+          const counter = setInterval(() => {
+            current += step;
+            if (current >= targetValue) {
+              current = targetValue;
+              clearInterval(counter);
+            }
+            
+            // Format based on original text
+            const originalText = target.textContent || '';
+            if (originalText.includes('%')) {
+              target.textContent = Math.round(current) + '%';
+            } else if (originalText.includes('+')) {
+              target.textContent = Math.round(current) + '+';
+            } else if (originalText.includes('.')) {
+              target.textContent = current.toFixed(1);
+            } else {
+              target.textContent = Math.round(current).toString();
+            }
+          }, 16);
+          
+          observer.unobserve(target);
+        }
+      });
+    }, observerOptions);
+    
+    counters.forEach((el) => observer.observe(el));
+  }
+
+  // Animate progress bars
+  function animateProgressBars() {
+    const bars = document.querySelectorAll('.bar > span[data-width]');
+    
+    const observerOptions = {
+      threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          const width = bar.getAttribute('data-width');
+          
+          // Set the CSS variable and trigger animation
+          bar.style.setProperty('--target-width', width + '%');
+          bar.style.animationPlayState = 'running';
+          
+          observer.unobserve(bar);
+        }
+      });
+    }, observerOptions);
+    
+    bars.forEach((el) => observer.observe(el));
+  }
+
+  // Initialize all animations
+  function initAnimations() {
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        initRevealAnimations();
+        initParallax();
+        
+        // Disable tilt on mobile for performance
+        if (window.innerWidth > 768) {
+          initCardTilt();
+          initMagneticButtons();
+        }
+        
+        animateCounters();
+        animateProgressBars();
+      });
+    } else {
+      initRevealAnimations();
+      initParallax();
+      
+      if (window.innerWidth > 768) {
+        initCardTilt();
+        initMagneticButtons();
+      }
+      
+      animateCounters();
+      animateProgressBars();
+    }
+  }
+
+  // Run on initial load
+  initAnimations();
+
+  // Re-initialize on Astro navigation (for View Transitions)
+  document.addEventListener('astro:page-load', initAnimations);
+</script>
+
+

@@ -1,0 +1,1031 @@
+
+
+
+
+
+
+---
+import MainLayout from '../layouts/main.astro';
+import { baseUrl } from '../lib/base-url';
+
+const pageClass = 'careers';
+---
+
+<MainLayout pageClass={pageClass}>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="pill">Careers at Sustainable Talent</div>
+        <h1>High standards. Low ego. Real ownership.</h1>
+        <p class="subhead">
+          We're building the talent operating system behind modern teams.
+          If you like clean execution, accountability, and treating people like humans - you'll fit right in.
+        </p>
+
+        <div class="grid-2" style="margin-top:18px;">
+          <div class="card">
+            <div class="title">Who thrives here</div>
+            <div class="body">
+              Operators who love clarity, move fast without breaking trust, and feel weird when a process is sloppy.
+            </div>
+            <div class="note">If you've ever said "we can run this better," welcome.</div>
+          </div>
+          <div class="card">
+            <div class="title">How we work</div>
+            <div class="body">
+              Human-led delivery + a platform layer (TalentOS™) for visibility. We value calm urgency, crisp communication, and finishing what we start.
+            </div>
+            <div class="note">No agency vibes. No chaos theater.</div>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn primary" href="#openings">View openings</a>
+          <a class="btn" href="#culture">Culture + values</a>
+        </div>
+
+        <div class="microproof">
+          Tip: If you don't see your role, send a note anyway - we hire exceptional operators.
+        </div>
+      </div>
+
+      <div class="frame reveal" role="img" aria-label="Sustainable Talent careers snapshot">
+        <div class="topbar">
+          <div class="dots" aria-hidden="true">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+          <div>Team snapshot</div>
+          <div class="chip"><span class="spark good"></span> Growing</div>
+        </div>
+
+        <div class="frame-body">
+          <div class="metric-grid">
+            <div class="metric">
+              <div class="metric-row">
+                <span>Employee satisfaction</span>
+                <span class="chip"><span class="spark good"></span> 4.8/5</span>
+              </div>
+              <div class="metric-val">4.8/5</div>
+            </div>
+
+            <div class="metric">
+              <div class="metric-row">
+                <span>Remote-first</span>
+                <span class="chip"><span class="spark"></span> US + Global</span>
+              </div>
+              <div class="metric-val">Yes</div>
+            </div>
+
+            <div class="metric">
+              <div class="metric-row">
+                <span>Delivery bar</span>
+                <span class="chip"><span class="spark good"></span> High</span>
+              </div>
+              <div class="metric-val">No fluff</div>
+            </div>
+
+            <div class="metric">
+              <div class="metric-row">
+                <span>Operator energy</span>
+                <span class="chip"><span class="spark good"></span> Required</span>
+              </div>
+              <div class="metric-val">Always</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px; color:var(--text-muted); font-size:12px;">
+            If you like building systems that scale - you're our people.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CULTURE -->
+<section class="section light" id="culture">
+  <div class="container">
+    <p class="kicker reveal">Culture</p>
+    <h2 class="reveal">We protect the human experience - and the outcome</h2>
+    <p class="lead reveal">
+      We're in the business of trust. Candidates, consultants, clients, and teammates should all feel like the process is crisp,
+      honest, and respectful - even when we're moving fast.
+    </p>
+
+    <div class="grid-3">
+      <div class="card pop reveal" tabindex="0">
+        <div class="title">Clear beats clever</div>
+        <div class="body">We love smart. We love clear more. Clarity creates speed, alignment, and better decisions.</div>
+        <div class="note">We write things down. We ship.</div>
+      </div>
+
+      <div class="card pop reveal" tabindex="0">
+        <div class="title">Ownership is the job</div>
+        <div class="body">If you see a problem, you own the next step. No finger-pointing, no "someone should."</div>
+        <div class="note">We operate like owners - because we are.</div>
+      </div>
+
+      <div class="card pop reveal" tabindex="0">
+        <div class="title">High bar, low drama</div>
+        <div class="body">We move with calm urgency. We don't do chaos theater, ego battles, or performative busy.</div>
+        <div class="note">Do great work. Be easy to work with.</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card pop reveal" tabindex="0">
+        <div class="title">How we communicate</div>
+        <ul class="bullets">
+          <li>Assume positive intent</li>
+          <li>Be direct and kind</li>
+          <li>Bring options, not just problems</li>
+          <li>Close loops fast</li>
+        </ul>
+        <div class="note">Less churn, more momentum.</div>
+      </div>
+
+      <div class="card pop reveal" tabindex="0">
+        <div class="title">What we optimize for</div>
+        <ul class="bullets">
+          <li>Speed with quality (not speed alone)</li>
+          <li>Great experience (for talent and clients)</li>
+          <li>Repeatable systems (TalentOS™ + process)</li>
+          <li>Trust (the real compounding advantage)</li>
+        </ul>
+        <div class="note">Outcomes you can show to leadership.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPENINGS -->
+<section class="section" id="openings">
+  <div class="container">
+    <p class="kicker reveal">Open roles</p>
+    <h2 class="reveal">Join the team</h2>
+    <p class="lead reveal">
+      Live job openings from our Greenhouse portal. Filter by department to find your fit.
+    </p>
+
+    <div class="filters reveal" aria-label="Job filters">
+      <select class="select" data-gh="filter" id="dept">
+        <option value="all">All departments</option>
+      </select>
+    </div>
+
+    <!-- Loading State -->
+    <div data-gh="loading" class="empty reveal" style="display:block; text-align:center; margin-top:18px;">
+      <div style="font-size:14px; color:var(--text-secondary); margin-bottom:8px;">
+        Loading open positions...
+      </div>
+      <div style="font-size:12px; color:var(--text-muted);">
+        Fetching live jobs from Greenhouse
+      </div>
+    </div>
+
+    <!-- Placeholder (hidden template) -->
+    <div data-gh="placeholder" class="empty" style="display:none;">
+      No current openings. Check back soon or send your resume to talent@sustainabletalent.com
+    </div>
+
+    <!-- Jobs Root Container -->
+    <div data-gh="root" class="jobs-root" style="margin-top:18px; display:none;"></div>
+
+    <!-- Section Wrapper Template (hidden, will be cloned) -->
+    <div data-gh="section-wrapper" class="section-wrapper" style="position:absolute; left:-9999px; visibility:hidden;">
+      <h3 data-gh="section-heading" style="margin-bottom:12px; font-size:18px; color:var(--text-primary);"></h3>
+      <div data-gh="container" class="jobs-container" style="display:grid; gap:12px;">
+        <!-- Listing Template (hidden, will be cloned) -->
+        <div data-gh="listing" class="job">
+          <div>
+            <div class="role" data-gh="job-title"></div>
+            <div class="meta">
+              <span class="badge" data-gh="job-location"></span>
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center; justify-content:flex-end; flex-wrap:wrap;">
+            <a data-gh="job-link" href="#" target="_blank" rel="noopener" class="btn primary">Apply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note reveal" style="margin-top:14px;">
+      All applications are processed through our secure Greenhouse portal.
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section light" id="get-started">
+  <div class="container">
+    <div class="cta-card pop reveal" tabindex="0">
+      <div>
+        <p class="kicker">Don't see your role?</p>
+        <h2 style="margin-bottom:10px;">Send a quick intro anyway</h2>
+        <p>
+          If you're an exceptional operator (recruiting, sourcing, delivery, ops, partnerships),
+          send a short note and your resume. We'll keep you close.
+        </p>
+        <div class="helper">Email: talent@sustainabletalent.com</div>
+      </div>
+
+      <form class="form" action="mailto:talent@sustainabletalent.com" method="post" enctype="text/plain">
+        <input class="input" type="text" name="name" placeholder="Your name" required />
+        <input class="input" type="email" name="email" placeholder="Your email" required />
+        <button class="btn primary" type="submit">Email us</button>
+      </form>
+    </div>
+  </div>
+</section>
+</MainLayout>
+
+<style>
+/* Hero */
+.hero {
+  padding: 92px 0 46px;
+  background: var(--bg-section);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: -200px -200px auto -200px;
+  height: 520px;
+  background: linear-gradient(120deg, rgba(99, 102, 241, 0.08), transparent 55%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary);
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+}
+
+.subhead {
+  margin: 0 0 18px;
+  color: var(--text-secondary);
+  font-size: 18px;
+  max-width: 86ch;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.microproof {
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 13px;
+  max-width: 82ch;
+}
+
+/* Frame */
+.frame {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-glass);
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.10);
+  overflow: hidden;
+  min-height: 360px;
+  animation: floaty 7s ease-in-out infinite;
+  position: relative;
+  transform: translateZ(0);
+  backdrop-filter: blur(8px);
+}
+
+.frame:after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 180deg,
+    rgba(99, 102, 241, 0.0),
+    rgba(99, 102, 241, 0.08),
+    rgba(56, 189, 248, 0.08),
+    rgba(99, 102, 241, 0.0)
+  );
+  filter: blur(32px);
+  opacity: 0.55;
+  animation: spin 12s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.frame > * {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.dots {
+  display: flex;
+  gap: 7px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.10);
+}
+
+.dot:nth-child(1) { background: rgba(15, 23, 42, 0.18); }
+.dot:nth-child(2) { background: rgba(15, 23, 42, 0.14); }
+.dot:nth-child(3) { background: rgba(15, 23, 42, 0.10); }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--text-secondary);
+  font-size: 12px;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.spark {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.85);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.spark.good {
+  background: rgba(34, 197, 94, 0.85);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.14);
+}
+
+.frame-body {
+  padding: 16px;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.metric {
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.55);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 92px;
+  backdrop-filter: blur(8px);
+}
+
+.metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.metric-val {
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  font-size: 22px;
+  color: var(--text-primary);
+}
+
+/* Sections */
+.section {
+  padding: 96px 0;
+  background: var(--bg-section);
+}
+
+.section.light {
+  position: relative;
+  background:
+    radial-gradient(1100px 520px at 15% 10%, rgba(99, 102, 241, 0.08), transparent 60%),
+    radial-gradient(1100px 520px at 85% 0%, rgba(99, 102, 241, 0.06), transparent 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.90), rgba(245, 246, 248, 0.85));
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.kicker {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.lead {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  max-width: 92ch;
+}
+
+/* Grids */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+/* Cards */
+.card {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-glass);
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  backdrop-filter: blur(8px);
+}
+
+.section.light .card {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(15, 23, 42, 0.10);
+  box-shadow: 0 22px 46px rgba(15, 23, 42, 0.09);
+}
+
+.title {
+  font-weight: 900;
+  letter-spacing: -0.2px;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.body {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.note {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.bullets {
+  margin: 14px 0 0;
+  padding: 0 0 0 18px;
+  color: var(--text-secondary);
+}
+
+.bullets li {
+  margin: 10px 0;
+}
+
+/* Pop Effect */
+.pop {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  cursor: default;
+}
+
+.pop:before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(700px 260px at 18% 18%, rgba(99, 102, 241, 0.10), transparent 60%),
+    radial-gradient(700px 260px at 82% 40%, rgba(56, 189, 248, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.pop:after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  border-radius: 999px;
+  background: conic-gradient(from 180deg, rgba(99, 102, 241, 0.00), rgba(99, 102, 241, 0.08), rgba(56, 189, 248, 0.08), rgba(99, 102, 241, 0.00));
+  filter: blur(32px);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.pop:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+}
+
+.section.light .pop:hover {
+  border-color: rgba(15, 23, 42, 0.18);
+  background: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 28px 78px rgba(15, 23, 42, 0.14);
+}
+
+.pop:hover:before {
+  opacity: 1;
+}
+
+.pop:hover:after {
+  opacity: 0.5;
+}
+
+.pop:focus-within {
+  outline: none;
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(99, 102, 241, 0.30);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+}
+
+/* Filters */
+.filters {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.select,
+.search {
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  padding: 0 14px;
+  outline: none;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.select {
+  min-width: 210px;
+}
+
+.search {
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+
+.search::placeholder {
+  color: rgba(71, 85, 105, 0.70);
+}
+
+/* Jobs */
+.jobs {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.job {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-glass);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.section.light .job {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(15, 23, 42, 0.10);
+}
+
+.job:hover {
+  transform: translateY(-1px);
+  border-color: rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.job .role {
+  font-weight: 900;
+  letter-spacing: -0.2px;
+  color: var(--text-primary);
+}
+
+.job .meta {
+  margin-top: 6px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.70);
+  color: var(--text-secondary);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.empty {
+  border-radius: 28px;
+  border: 1px dashed var(--border-light);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 18px;
+  color: var(--text-secondary);
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
+
+/* Jobs Root */
+.jobs-root {
+  margin-top: 18px;
+}
+
+.section-wrapper {
+  margin-bottom: 24px;
+}
+
+.jobs-container {
+  display: grid;
+  gap: 12px;
+}
+
+/* CTA Card */
+.cta-card {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background:
+    radial-gradient(900px 260px at 50% 0%, rgba(99, 102, 241, 0.10), transparent 70%),
+    radial-gradient(900px 260px at 50% 100%, rgba(56, 189, 248, 0.08), transparent 70%),
+    var(--bg-glass);
+  padding: 34px;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.10);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.cta-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  max-width: 70ch;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.input {
+  flex: 1 1 220px;
+  min-width: 200px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  padding: 0 14px;
+  outline: none;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+}
+
+.input::placeholder {
+  color: rgba(71, 85, 105, 0.70);
+}
+
+.helper {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, filter 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+.btn.primary {
+  border-color: transparent;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 16px 30px rgba(99, 102, 241, 0.18);
+}
+
+.btn.primary:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+/* Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1020px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    justify-content: flex-start;
+  }
+
+  .job {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .hero {
+    padding: 78px 0 38px;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame {
+    animation: none;
+  }
+
+  .frame:after {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pop,
+  .pop:before,
+  .pop:after {
+    transition: none;
+  }
+
+  .pop:hover {
+    transform: none;
+  }
+}
+</style>
+
+<script src="https://tools.refokus.com/cms-filter/bundle.v1.5.0.js"></script>
+
+<script>
+//GREEN HOUSE
+  const ghSlug = "sustainabletalent"; //replace with your own orgs slug
+</script>
+
+<script>
+// Global object to store DOM elements
+const domElements = { 
+  root: document.querySelector('[data-gh="root"]'),
+  loading: document.querySelector('[data-gh="loading"]'),
+  jobFilter: document.querySelector('[data-gh="filter"]'),
+  placeHolder: document.querySelector('[data-gh="placeholder"]'),
+  sectionWrapper: document.querySelector('[data-gh="section-wrapper"]'),
+};
+
+const departmentIds = [];
+
+// Fetch function we'll use to get data from the Greenhouse endpoints
+const fetchData = (url) =>
+  fetch(url).then((response) => {
+    if (!response.ok) {
+      throw Error(` ${response.status} ${response.statusText}`);
+    }
+    return response.json();
+  });
+
+// Filtering function for select element
+domElements.jobFilter.onchange = () => {
+  const selectedSection = domElements.jobFilter.value;
+  const sections = document.querySelectorAll('[data-gh="section-wrapper"]');
+  sections.forEach((section) => {
+    section.style.display =
+      selectedSection === "all" || section.id === selectedSection
+        ? "block"
+        : "none";
+  });
+};
+
+// When the DOM is ready, fetch the data and write it to the page
+// Start by showing the loader and getting the department data
+window.addEventListener("DOMContentLoaded", () => {
+  if (domElements.loading) {
+    domElements.loading.classList.remove("hidden");
+    domElements.loading.style.display = "block";
+  }
+  fetchData(`https://boards-api.greenhouse.io/v1/boards/${ghSlug}/departments/`)
+    .then((data) => {
+      data.departments.forEach((department) => {
+        if (department.jobs.length > 0) {
+          departmentIds.push(department.id);
+          let sectionClone = domElements.sectionWrapper.cloneNode(true);
+          sectionClone.id = department.id;
+          sectionClone.style.position = "static";
+          sectionClone.style.visibility = "visible";
+          sectionClone.style.left = "auto";
+          sectionClone.querySelector('[data-gh="section-heading"]').innerText =
+            department.name;
+          sectionClone
+            .querySelector('[data-gh="container"]')
+            .setAttribute("aria-label", department.name);
+          domElements.root.appendChild(sectionClone);
+          let option = new Option(department.name, department.id);
+          domElements.jobFilter.add(option);
+        }
+      });
+    })
+    .catch(console.error)
+    .finally(writeJobs);
+});
+
+// Triggered in finally above
+// Writes all the jobs to the page
+function writeJobs() {
+  departmentIds.forEach((departmentId) => {
+    fetchData(
+      `https://boards-api.greenhouse.io/v1/boards/${ghSlug}/departments/${departmentId}`
+    )
+      .then((data) => {
+        let parent = document.getElementById(data.id);
+        let parentContainer = parent.querySelector('[data-gh="container"]');
+        data.jobs.forEach((job) => {
+          let ghListing = parentContainer
+            .querySelector('[data-gh="listing"]')
+            .cloneNode(true);
+          ghListing.id = job.id;
+          let jobTitle = ghListing.querySelector('[data-gh="job-title"]');
+          jobTitle.innerText = job.title;
+          let jobLink = ghListing.querySelector('[data-gh="job-link"]');
+          jobLink.setAttribute("href", job.absolute_url);
+          ghListing.querySelector('[data-gh="job-location"]').innerText =
+            job.location.name;
+          parentContainer.appendChild(ghListing);
+        });
+        parentContainer.querySelector('[data-gh="listing"]').remove();
+      })
+      .catch(console.error)
+      .finally(() => {
+        if (domElements.loading) {
+          domElements.loading.classList.add("hidden");
+          domElements.loading.remove();
+        }
+        if (domElements.placeHolder) {
+          domElements.placeHolder.remove();
+        }
+        if (domElements.root) {
+          domElements.root.classList.remove("hidden");
+          domElements.root.style.display = "block";
+        }
+      });
+  });
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

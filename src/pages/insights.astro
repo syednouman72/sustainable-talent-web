@@ -1,0 +1,768 @@
+---
+import MainLayout from '../layouts/main.astro';
+import { baseUrl } from '../lib/base-url';
+
+const pageClass = 'insights';
+const title = 'Insights | Sustainable Talent';
+const description = 'Industry insights, talent market trends, and best practices for building and running modern talent programs. Expert guidance from Sustainable Talent.';
+const ogImage = 'https://sustainabletalent.com/og-insights.jpg';
+const canonicalUrl = 'https://sustainabletalent.com/insights';
+
+// Featured articles (in a real implementation, this would come from a CMS or API)
+const featuredArticle = {
+  title: "The State of Contingent Workforce Management in 2024",
+  excerpt: "How leading enterprises are modernizing their talent programs with technology, automation, and strategic partnerships.",
+  category: "Industry Report",
+  date: "January 15, 2024",
+  readTime: "12 min read",
+  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
+  slug: "#"
+};
+
+const articles = [
+  {
+    title: "Building a Scalable Contractor Program: Lessons from Enterprise Leaders",
+    excerpt: "Five key principles that differentiate high-performing contractor programs from the rest.",
+    category: "Best Practices",
+    date: "January 10, 2024",
+    readTime: "8 min read",
+    slug: "#"
+  },
+  {
+    title: "Compliance in a Multi-Country Talent Model",
+    excerpt: "Navigating employment law, tax regulations, and compliance requirements across global markets.",
+    category: "Compliance",
+    date: "January 5, 2024",
+    readTime: "10 min read",
+    slug: "#"
+  },
+  {
+    title: "The ROI of Transparent Talent Operations",
+    excerpt: "How visibility and data-driven decision making improve program outcomes and reduce costs.",
+    category: "Data & Analytics",
+    date: "December 20, 2023",
+    readTime: "6 min read",
+    slug: "#"
+  },
+  {
+    title: "From Reactive to Strategic: Transforming Your Recruiting Operations",
+    excerpt: "A framework for moving from firefighting to proactive talent pipeline management.",
+    category: "Recruiting",
+    date: "December 15, 2023",
+    readTime: "9 min read",
+    slug: "#"
+  },
+  {
+    title: "The Future of Work: Hybrid Talent Models and What They Mean for HR",
+    excerpt: "How progressive companies are blending FTE, contractors, and global talent into cohesive teams.",
+    category: "Future of Work",
+    date: "December 10, 2023",
+    readTime: "7 min read",
+    slug: "#"
+  },
+  {
+    title: "Measuring What Matters: KPIs for Modern Talent Programs",
+    excerpt: "Beyond time-to-fill: the metrics that actually drive program performance and business impact.",
+    category: "Data & Analytics",
+    date: "December 5, 2023",
+    readTime: "8 min read",
+    slug: "#"
+  }
+];
+
+const categories = [
+  "All Articles",
+  "Industry Report",
+  "Best Practices",
+  "Compliance",
+  "Recruiting",
+  "Data & Analytics",
+  "Future of Work",
+  "Case Studies"
+];
+---
+
+<MainLayout 
+  pageClass={pageClass}
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalUrl}
+>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="pill">Insights & Resources</div>
+      <h1>Insights for modern talent leaders</h1>
+      <p class="subhead">
+        Industry trends, best practices, and expert guidance for building 
+        and running world-class talent programs.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURED ARTICLE -->
+<section class="section">
+  <div class="container">
+    <p class="kicker reveal">Featured</p>
+    
+    <article class="featured-article reveal">
+      <div class="featured-image">
+        <img src={featuredArticle.image} alt={featuredArticle.title} />
+        <div class="featured-badge">{featuredArticle.category}</div>
+      </div>
+      
+      <div class="featured-content">
+        <div class="article-meta">
+          <span>{featuredArticle.date}</span>
+          <span>•</span>
+          <span>{featuredArticle.readTime}</span>
+        </div>
+        
+        <h2>{featuredArticle.title}</h2>
+        <p class="article-excerpt">{featuredArticle.excerpt}</p>
+        
+        <a href={featuredArticle.slug} class="btn primary">Read Article</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CATEGORY FILTERS -->
+<section class="section light">
+  <div class="container">
+    <div class="filters reveal">
+      <div class="filter-label">Filter by topic:</div>
+      <div class="filter-buttons">
+        {categories.map((cat, index) => (
+          <button 
+            class={`filter-btn ${index === 0 ? 'active' : ''}`}
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- ARTICLES GRID -->
+    <div class="articles-grid">
+      {articles.map((article) => (
+        <article class="article-card reveal">
+          <div class="article-card-header">
+            <div class="article-category">{article.category}</div>
+            <div class="article-date">{article.date}</div>
+          </div>
+          
+          <h3 class="article-title">{article.title}</h3>
+          <p class="article-excerpt">{article.excerpt}</p>
+          
+          <div class="article-footer">
+            <span class="read-time">{article.readTime}</span>
+            <a href={article.slug} class="read-more">
+              Read more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="section">
+  <div class="container">
+    <div class="newsletter-card reveal">
+      <div class="newsletter-content">
+        <h2>Get insights delivered to your inbox</h2>
+        <p>
+          Join 5,000+ talent leaders who receive our monthly newsletter with 
+          industry trends, best practices, and actionable insights.
+        </p>
+      </div>
+      
+      <form class="newsletter-form">
+        <input 
+          type="email" 
+          class="newsletter-input" 
+          placeholder="Enter your email" 
+          required 
+        />
+        <button type="submit" class="btn primary">Subscribe</button>
+      </form>
+      
+      <p class="newsletter-note">
+        No spam. Unsubscribe anytime. Read our <a href={`${baseUrl}/privacy`}>privacy policy</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section light">
+  <div class="container">
+    <div class="resources-header reveal">
+      <div>
+        <p class="kicker">Popular Resources</p>
+        <h2>Guides, reports, and whitepapers</h2>
+        <p class="lead">
+          In-depth resources to help you build and optimize your talent programs.
+        </p>
+      </div>
+    </div>
+
+    <div class="resources-grid">
+      <div class="resource-card reveal">
+        <div class="resource-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2"/>
+            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="resource-content">
+          <h3>Enterprise Contractor Management Guide</h3>
+          <p>A comprehensive playbook for building scalable contractor programs.</p>
+          <a href="#" class="resource-link">Download PDF</a>
+        </div>
+      </div>
+
+      <div class="resource-card reveal">
+        <div class="resource-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 3v18h18" stroke-width="2"/>
+            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="resource-content">
+          <h3>2024 Talent Operations Benchmark Report</h3>
+          <p>Data-driven insights on recruiting velocity, costs, and program performance.</p>
+          <a href="#" class="resource-link">Download Report</a>
+        </div>
+      </div>
+
+      <div class="resource-card reveal">
+        <div class="resource-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path d="M12 6v6l4 2" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="resource-content">
+          <h3>Global Compliance Checklist</h3>
+          <p>Essential compliance requirements for multi-country talent programs.</p>
+          <a href="#" class="resource-link">Download Checklist</a>
+        </div>
+      </div>
+
+      <div class="resource-card reveal">
+        <div class="resource-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke-width="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="resource-content">
+          <h3>Webinar: The Future of Contingent Workforce</h3>
+          <p>Expert panel discussion on trends shaping the future of talent operations.</p>
+          <a href="#" class="resource-link">Watch Recording</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div>
+        <p class="kicker">Ready to transform your talent operations?</p>
+        <h2>Let's talk about your program</h2>
+        <p>
+          Schedule a conversation with our team to discuss your talent challenges 
+          and explore how TalentOS™ can help.
+        </p>
+      </div>
+      <div class="cta-row">
+        <a class="btn primary" href={`${baseUrl}/contact`}>Schedule a Call</a>
+        <a class="btn" href={`${baseUrl}/platform`}>Explore TalentOS™</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</MainLayout>
+
+<style>
+/* Hero */
+.hero {
+  padding: 120px 0 80px;
+  background: var(--bg-page);
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Featured Article */
+.featured-article {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.featured-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 16px;
+  background: var(--accent);
+  color: white;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.featured-content h2 {
+  font-size: 32px;
+  margin: 16px 0;
+  line-height: 1.2;
+}
+
+.article-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.article-excerpt {
+  color: var(--text-muted);
+  margin: 16px 0 24px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+/* Articles Grid */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.article-card {
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  border-color: var(--accent);
+}
+
+.article-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.article-category {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.article-date {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.article-title {
+  font-size: 20px;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.article-card .article-excerpt {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  flex-grow: 1;
+  line-height: 1.6;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.read-time {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.read-more {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.read-more:hover {
+  gap: 10px;
+}
+
+/* Newsletter Card */
+.newsletter-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(56, 189, 248, 0.05)),
+              var(--bg-surface);
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.newsletter-content {
+  margin-bottom: 32px;
+}
+
+.newsletter-content h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.newsletter-content p {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto 16px;
+}
+
+.newsletter-input {
+  flex: 1;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  font-size: 15px;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.newsletter-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+.newsletter-note a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Resources Grid */
+.resources-header {
+  margin-bottom: 48px;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.resource-card {
+  display: flex;
+  gap: 24px;
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+}
+
+.resource-icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.resource-content h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.resource-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.resource-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease;
+}
+
+.resource-link:hover {
+  gap: 10px;
+}
+
+.resource-link::after {
+  content: '→';
+}
+
+/* CTA Card */
+.cta-card {
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.05), 
+    rgba(56, 189, 248, 0.05)),
+    var(--bg-surface);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.cta-card h2 {
+  font-size: 32px;
+  margin: 12px 0 16px;
+}
+
+.cta-card p {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-width: 600px;
+  margin-bottom: 32px;
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .featured-article {
+    grid-template-columns: 1fr;
+  }
+
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 80px 0 60px;
+  }
+
+  .featured-article {
+    padding: 24px;
+  }
+
+  .featured-content h2 {
+    font-size: 24px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-card {
+    padding: 32px 24px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-input {
+    width: 100%;
+  }
+
+  .filter-buttons {
+    width: 100%;
+  }
+
+  .filter-btn {
+    flex: 1;
+    min-width: auto;
+  }
+
+  .resource-card {
+    flex-direction: column;
+  }
+
+  .cta-card {
+    padding: 32px 24px;
+  }
+}
+</style>
+
+<script>
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const articleCards = document.querySelectorAll('.article-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.category;
+      
+      // Update active state
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Filter articles (in a real implementation, this would filter actual content)
+      // For now, this is just for UI demonstration
+      articleCards.forEach(card => {
+        if (category === 'All Articles') {
+          card.style.display = 'flex';
+        } else {
+          // This would check against actual article categories
+          card.style.display = 'flex';
+        }
+      });
+    });
+  });
+
+  // Newsletter form
+  const newsletterForm = document.querySelector('.newsletter-form');
+  newsletterForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = (e.target as HTMLFormElement).querySelector('input')?.value;
+    console.log('Newsletter signup:', email);
+    alert('Thanks for subscribing! (This is a demo - no actual signup occurred)');
+  });
+</script>

@@ -1,0 +1,316 @@
+---
+// Advanced Analytics Tracking
+// This component adds event tracking for user interactions
+// Only loads in production when GA4 is configured
+---
+
+<script is:inline>
+  // Wait for GA to be ready
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // ===== CTA Click Tracking =====
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('a, button');
+    if (!target) return;
+
+    // Track primary CTAs
+    if (target.matches('.btn.primary')) {
+      gtag('event', 'cta_click', {
+        'event_category': 'engagement',
+        'event_label': target.textContent?.trim() || 'Unknown CTA',
+        'button_location': window.location.pathname,
+        'button_text': target.textContent?.trim()
+      });
+    }
+
+    // Track navigation clicks
+    if (target.matches('nav a, .nav-links a')) {
+      gtag('event', 'navigation_click', {
+        'event_category': 'navigation',
+        'event_label': target.textContent?.trim(),
+        'link_url': target.getAttribute('href')
+      });
+    }
+
+    // Track external links
+    const href = target.getAttribute('href') || '';
+    if (href.startsWith('http') && !href.includes(window.location.hostname)) {
+      gtag('event', 'outbound_click', {
+        'event_category': 'outbound',
+        'event_label': href,
+        'link_text': target.textContent?.trim()
+      });
+    }
+  });
+
+  // ===== Form Submission Tracking =====
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+      gtag('event', 'form_submit', {
+        'event_category': 'forms',
+        'event_label': 'contact_form',
+        'page_location': window.location.pathname
+      });
+    });
+  }
+
+  // ===== Job Application Tracking =====
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('a');
+    if (!target) return;
+
+    // Track Greenhouse job apply clicks
+    if (target.href && target.href.includes('greenhouse.io')) {
+      const jobTitle = target.getAttribute('data-job-title') || 
+                      target.closest('.job-card')?.querySelector('.job-title')?.textContent || 
+                      'Unknown Job';
+      
+      gtag('event', 'job_apply_click', {
+        'event_category': 'careers',
+        'event_label': jobTitle,
+        'job_url': target.href
+      });
+    }
+  });
+
+  // ===== Job Search/Filter Tracking =====
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    let searchTimeout;
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        if (e.target.value.length >= 3) {
+          gtag('event', 'job_search', {
+            'event_category': 'careers',
+            'event_label': 'search',
+            'search_term': e.target.value
+          });
+        }
+      }, 1000); // Debounce 1 second
+    });
+  }
+
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      gtag('event', 'job_filter', {
+        'event_category': 'careers',
+        'event_label': btn.dataset.filter || 'unknown',
+        'filter_value': btn.textContent?.trim()
+      });
+    });
+  });
+
+  // ===== Scroll Depth Tracking =====
+  let scrollThresholds = [25, 50, 75, 100];
+  let triggeredThresholds = new Set();
+
+  function trackScrollDepth() {
+    const scrollPercent = Math.round(
+      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+    );
+
+    scrollThresholds.forEach(threshold => {
+      if (scrollPercent >= threshold && !triggeredThresholds.has(threshold)) {
+        triggeredThresholds.add(threshold);
+        gtag('event', 'scroll_depth', {
+          'event_category': 'engagement',
+          'event_label': `${threshold}%`,
+          'page_location': window.location.pathname
+        });
+      }
+    });
+  }
+
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(trackScrollDepth, 100);
+  }, { passive: true });
+
+  // ===== Video Play Tracking (if videos added) =====
+  document.addEventListener('play', (e) => {
+    if (e.target.tagName === 'VIDEO') {
+      const videoSrc = e.target.src || e.target.querySelector('source')?.src || 'Unknown video';
+      gtag('event', 'video_play', {
+        'event_category': 'engagement',
+        'event_label': videoSrc,
+        'page_location': window.location.pathname
+      });
+    }
+  }, true);
+
+  // ===== Newsletter Signup Tracking =====
+  const newsletterForm = document.querySelector('.newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', () => {
+      gtag('event', 'newsletter_signup', {
+        'event_category': 'engagement',
+        'event_label': 'newsletter',
+        'page_location': window.location.pathname
+      });
+    });
+  }
+
+  // ===== Tab Interaction Tracking =====
+  document.addEventListener('click', (e) => {
+    const tabButton = e.target.closest('[role="tab"]');
+    if (tabButton) {
+      const tabName = tabButton.textContent?.trim() || 'Unknown Tab';
+      gtag('event', 'tab_click', {
+        'event_category': 'engagement',
+        'event_label': tabName,
+        'page_location': window.location.pathname
+      });
+    }
+  });
+
+  // ===== Modal Open Tracking =====
+  const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+  modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const modalName = trigger.getAttribute('data-modal-trigger') || 'Unknown Modal';
+      gtag('event', 'modal_open', {
+        'event_category': 'engagement',
+        'event_label': modalName,
+        'page_location': window.location.pathname
+      });
+    });
+  });
+
+  // ===== Time on Page Tracking =====
+  let pageStartTime = Date.now();
+  
+  window.addEventListener('beforeunload', () => {
+    const timeOnPage = Math.round((Date.now() - pageStartTime) / 1000); // seconds
+    
+    // Only track if user spent meaningful time (>10 seconds)
+    if (timeOnPage > 10) {
+      gtag('event', 'time_on_page', {
+        'event_category': 'engagement',
+        'event_label': window.location.pathname,
+        'value': timeOnPage
+      });
+    }
+  });
+
+  // ===== Error Tracking =====
+  window.addEventListener('error', (e) => {
+    gtag('event', 'javascript_error', {
+      'event_category': 'errors',
+      'event_label': e.message || 'Unknown error',
+      'error_source': e.filename || 'Unknown source',
+      'error_line': e.lineno || 0
+    });
+  });
+
+  // ===== Performance Tracking =====
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const perfData = performance.getEntriesByType('navigation')[0];
+      if (perfData) {
+        const loadTime = Math.round(perfData.loadEventEnd - perfData.fetchStart);
+        
+        gtag('event', 'page_load_time', {
+          'event_category': 'performance',
+          'event_label': window.location.pathname,
+          'value': loadTime
+        });
+      }
+    }, 0);
+  });
+
+  // ===== Custom Conversion Tracking =====
+  
+  // Track when someone views pricing/engagement models
+  if (window.location.pathname.includes('solutions')) {
+    gtag('event', 'view_solutions', {
+      'event_category': 'conversion_funnel',
+      'event_label': 'solutions_page_view'
+    });
+  }
+
+  // Track case study views
+  if (window.location.pathname.includes('case-studies')) {
+    gtag('event', 'view_case_study', {
+      'event_category': 'conversion_funnel',
+      'event_label': 'case_study_page_view'
+    });
+  }
+
+  // Track when user reaches "Get Started" section
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.target.id === 'get-started') {
+        gtag('event', 'view_cta_section', {
+          'event_category': 'conversion_funnel',
+          'event_label': 'get_started_section_view'
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const getStartedSection = document.getElementById('get-started');
+  if (getStartedSection) {
+    observer.observe(getStartedSection);
+  }
+
+  console.log('✅ Advanced Analytics tracking initialized');
+</script>
+
+<!-- 
+  ========================================
+  USAGE INSTRUCTIONS
+  ========================================
+  
+  1. Import this component in main.astro:
+     import AdvancedAnalytics from '../components/AdvancedAnalytics.astro';
+  
+  2. Add before closing </body> tag:
+     <AdvancedAnalytics />
+  
+  3. Only works when:
+     - Google Analytics is configured
+     - In production build (not dev)
+  
+  ========================================
+  TRACKED EVENTS
+  ========================================
+  
+  - CTA clicks (primary buttons)
+  - Navigation clicks
+  - Outbound link clicks
+  - Form submissions
+  - Job application clicks
+  - Job search queries
+  - Job filter usage
+  - Scroll depth (25%, 50%, 75%, 100%)
+  - Video plays
+  - Newsletter signups
+  - Tab interactions
+  - Modal opens
+  - Time on page
+  - JavaScript errors
+  - Page load performance
+  - Custom conversion events
+  
+  ========================================
+  VIEW IN GOOGLE ANALYTICS
+  ========================================
+  
+  Go to: Reports → Engagement → Events
+  
+  You'll see custom events:
+  - cta_click
+  - navigation_click
+  - form_submit
+  - job_apply_click
+  - scroll_depth
+  - etc.
+  
+  ========================================
+-->
