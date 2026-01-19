@@ -46,20 +46,7 @@ function injectDevScript(options = {}) {
 // https://astro.build/config
 export default defineConfig({
   base: '',
-  output: 'server',
-  devToolbar: {
-    enabled: false,
-  },
-  server: {
-    port: 3000,
-    host: true, // Listen on all network interfaces (0.0.0.0)
-    strictPort: true,
-  },
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: false,
-    },
-  }),
+  output: 'static',
   integrations: [
     react(),
     injectDevScript({scriptPath: '/generated/dev-only.js'}),
