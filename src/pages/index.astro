@@ -30,9 +30,39 @@ const pageClass = 'solutions';
           <a class="btn" href="#models">Compare models</a>
         </div>
 
-        <div class="microproof">
-          Customer satisfaction 98%, employee satisfaction 4.8 out of 5, and global coverage across 150+ countries (with Deel and local entities).
-        </div>
+    
+
+      
+          <div class="hero-logos">
+            <p>Trusted by teams at</p>
+            <div class="hero-logo-row">
+              <img
+                src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413546fff7c30034eda20_nvidia.svg"
+                alt="Nvidia"
+                loading="lazy"
+              />
+              <img
+                src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541351c4a5ed344bb4da30_ford.svg"
+                alt="Ford"
+                loading="lazy"
+              />
+              <img
+                src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/695413529ffcdf7a0f1756b3_mongodb.svg"
+                alt="MongoDB"
+                loading="lazy"
+              />
+              <img
+                src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/69541352d2c166a97377dc63_microsoft.svg"
+                alt="Microsoft"
+                loading="lazy"
+              />
+              <img
+                src="https://cdn.prod.website-files.com/692d9bd20e09dba5c24a10a4/6954134f7bb5c15903761362_amazon.svg"
+                alt="Amazon"
+                loading="lazy"
+              />
+            </div>
+          </div>
       </div>
 
       <div class="float-card reveal" role="img" aria-label="Solutions snapshot">
@@ -1294,6 +1324,43 @@ const pageClass = 'solutions';
     min-width: 0; /* Prevents flex/grid overflow issues */
   }
 }
+
+ .hero-logos {
+          margin-top: 32px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .hero-logos p {
+          margin: 0;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          color: var(--text-muted);
+          font-weight: 500;
+        }
+
+        .hero-logo-row {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          flex-wrap: wrap;
+        }
+
+        .hero-logo-row img {
+          height: 42px; /* Smaller size to fit beneath buttons */
+          width: auto;
+          opacity: 0.5;
+          filter: grayscale(100%);
+          transition: all 0.2s ease;
+        }
+
+        .hero-logo-row img:hover {
+          opacity: 1;
+          filter: grayscale(0%);
+          transform: translateY(-1px);
+        }
 
 </style>
 
