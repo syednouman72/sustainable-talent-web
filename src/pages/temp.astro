@@ -1,0 +1,1539 @@
+
+
+
+
+---
+import MainLayout from '../layouts/main.astro';
+import { baseUrl } from '../lib/base-url';
+
+const pageClass = 'platform';
+const title = 'Platform | TalentOS™ - Sustainable Talent';
+const description = 'TalentOS™ is the operating system for modern talent programs. One platform for contractor management, recruiting workflows, compliance, and program health.';
+const ogImage = 'https://sustainabletalent.com/og-platform.jpg';
+const canonicalUrl = 'https://sustainabletalent.com/platform';
+---
+
+<MainLayout 
+  pageClass={pageClass}
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  canonicalUrl={canonicalUrl}
+>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="pill">TalentOS™ Platform</div>
+        <h1>The operating system for modern talent programs</h1>
+        <p class="subhead">
+          One platform for contractor management, recruiting workflows, compliance, and program health. 
+          Built for enterprise scale. Designed for transparency.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#get-started">Request Demo</a>
+          <a class="btn" href="#features">Explore Features</a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="product-frame">
+          <div class="product-topbar">
+            <div class="dots">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div>TalentOS™ Dashboard</div>
+            <div class="ui-chip"><span class="spark"></span> Live</div>
+          </div>
+          <div class="product-body">
+            <div class="platform-preview">
+              <div class="preview-item">
+                <div class="preview-label">Active Programs</div>
+                <div class="preview-value">12</div>
+              </div>
+              <div class="preview-item">
+                <div class="preview-label">Open Roles</div>
+                <div class="preview-value">47</div>
+              </div>
+              <div class="preview-item">
+                <div class="preview-label">Active Consultants</div>
+                <div class="preview-value">186</div>
+              </div>
+              <div class="preview-item">
+                <div class="preview-label">Compliance Score</div>
+                <div class="preview-value">98%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURES TABS -->
+<section class="section" id="features">
+  <div class="container">
+    <p class="kicker reveal">Platform Features</p>
+    <h2 class="reveal">Everything you need to run a global talent program</h2>
+    <p class="lead reveal">
+      TalentOS™ brings together contractor management, recruiting workflows, compliance tracking, 
+      and program analytics in one unified platform.
+    </p>
+
+    <div class="tabs-container reveal">
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" data-tab="contractor" aria-selected="true">
+          Contractor Management
+        </button>
+        <button class="tab" role="tab" data-tab="recruiting">
+          Recruiting Workflows
+        </button>
+        <button class="tab" role="tab" data-tab="compliance">
+          Compliance & Reporting
+        </button>
+        <button class="tab" role="tab" data-tab="analytics">
+          Program Analytics
+        </button>
+      </div>
+
+      <!-- Contractor Tab -->
+      <div class="tab-panel active" id="contractor" role="tabpanel">
+        <div class="panel-grid">
+          <div class="panel-content">
+            <h3>Manage your entire contractor lifecycle</h3>
+            <p class="lead">
+              From onboarding to offboarding, track every consultant across multiple clients, 
+              locations, and employment models.
+            </p>
+            <ul class="bullets">
+              <li>Real-time roster visibility across all locations</li>
+              <li>Automated onboarding workflows and compliance checks</li>
+              <li>Time tracking and invoice management</li>
+              <li>Extension and renewal tracking</li>
+              <li>Performance and feedback collection</li>
+              <li>Offboarding and knowledge transfer</li>
+            </ul>
+          </div>
+          <div class="panel-visual">
+            <div class="feature-card">
+              <div class="card-header">Active Consultants</div>
+              <div class="card-body">
+                <div class="roster-item">
+                  <div class="roster-info">
+                    <div class="roster-name">Sarah Chen</div>
+                    <div class="roster-role">Senior Data Engineer</div>
+                  </div>
+                  <div class="roster-status">Active</div>
+                </div>
+                <div class="roster-item">
+                  <div class="roster-info">
+                    <div class="roster-name">Michael Torres</div>
+                    <div class="roster-role">Product Manager</div>
+                  </div>
+                  <div class="roster-status">Active</div>
+                </div>
+                <div class="roster-item">
+                  <div class="roster-info">
+                    <div class="roster-name">Jessica Park</div>
+                    <div class="roster-role">UX Designer</div>
+                  </div>
+                  <div class="roster-status">Pending Start</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recruiting Tab -->
+      <div class="tab-panel" id="recruiting" role="tabpanel">
+        <div class="panel-grid">
+          <div class="panel-content">
+            <h3>Streamline your recruiting operations</h3>
+            <p class="lead">
+              Centralized intake, sourcing, screening, and hiring workflows. 
+              Clear visibility for hiring managers and stakeholders.
+            </p>
+            <ul class="bullets">
+              <li>Role intake and approval workflows</li>
+              <li>Candidate pipeline tracking by stage</li>
+              <li>Hiring manager feedback and approvals</li>
+              <li>Interview scheduling and coordination</li>
+              <li>Offer generation and acceptance tracking</li>
+              <li>Integration with ATS and vendor systems</li>
+            </ul>
+          </div>
+          <div class="panel-visual">
+            <div class="feature-card">
+              <div class="card-header">Pipeline Overview</div>
+              <div class="card-body">
+                <div class="pipeline-stage">
+                  <div class="stage-name">Sourcing</div>
+                  <div class="stage-count">24</div>
+                </div>
+                <div class="pipeline-stage">
+                  <div class="stage-name">Screening</div>
+                  <div class="stage-count">12</div>
+                </div>
+                <div class="pipeline-stage">
+                  <div class="stage-name">Interviews</div>
+                  <div class="stage-count">8</div>
+                </div>
+                <div class="pipeline-stage">
+                  <div class="stage-name">Offers</div>
+                  <div class="stage-count">3</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance Tab -->
+      <div class="tab-panel" id="compliance" role="tabpanel">
+        <div class="panel-grid">
+          <div class="panel-content">
+            <h3>Stay compliant across all locations</h3>
+            <p class="lead">
+              Automated compliance tracking, background checks, and reporting. 
+              Built-in guardrails for global employment regulations.
+            </p>
+            <ul class="bullets">
+              <li>Background check and I-9 verification</li>
+              <li>Right-to-work and eligibility tracking</li>
+              <li>MSP and VMS compliance reporting</li>
+              <li>Global employment law adherence</li>
+              <li>Audit trails and documentation</li>
+              <li>Risk scoring and alerts</li>
+            </ul>
+          </div>
+          <div class="panel-visual">
+            <div class="feature-card">
+              <div class="card-header">Compliance Dashboard</div>
+              <div class="card-body">
+                <div class="compliance-item">
+                  <div class="compliance-label">Background Checks</div>
+                  <div class="compliance-badge good">100%</div>
+                </div>
+                <div class="compliance-item">
+                  <div class="compliance-label">I-9 Verification</div>
+                  <div class="compliance-badge good">100%</div>
+                </div>
+                <div class="compliance-item">
+                  <div class="compliance-label">Contract Renewals</div>
+                  <div class="compliance-badge warn">3 Pending</div>
+                </div>
+                <div class="compliance-item">
+                  <div class="compliance-label">Program Health</div>
+                  <div class="compliance-badge good">98%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Tab -->
+      <div class="tab-panel" id="analytics" role="tabpanel">
+        <div class="panel-grid">
+          <div class="panel-content">
+            <h3>Data-driven program insights</h3>
+            <p class="lead">
+              Real-time reporting on program health, hiring velocity, consultant performance, 
+              and cost management.
+            </p>
+            <ul class="bullets">
+              <li>Custom dashboards and KPI tracking</li>
+              <li>Time-to-fill and pipeline velocity metrics</li>
+              <li>Consultant utilization and performance</li>
+              <li>Cost analysis and budget tracking</li>
+              <li>Diversity and inclusion reporting</li>
+              <li>Executive summaries and board reports</li>
+            </ul>
+          </div>
+          <div class="panel-visual">
+            <div class="feature-card">
+              <div class="card-header">Program Metrics</div>
+              <div class="card-body">
+                <div class="metric-row">
+                  <div class="metric-label">Avg. Time to Fill</div>
+                  <div class="metric-value">18 days</div>
+                </div>
+                <div class="metric-row">
+                  <div class="metric-label">Submission → Interview</div>
+                  <div class="metric-value">38%</div>
+                </div>
+                <div class="metric-row">
+                  <div class="metric-label">Offer Acceptance</div>
+                  <div class="metric-value">92%</div>
+                </div>
+                <div class="metric-row">
+                  <div class="metric-label">Consultant Satisfaction</div>
+                  <div class="metric-value">4.8/5</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW SECTION -->
+<section class="section light">
+  <div class="container">
+    <p class="kicker reveal">How It Works</p>
+    <h2 class="reveal">From intake to active, one seamless workflow</h2>
+    <p class="lead reveal">
+      TalentOS™ connects every step of your talent program, 
+      eliminating silos and giving you complete visibility.
+    </p>
+
+    <div class="workflow-steps">
+      <div class="workflow-step reveal">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h3>Role Intake</h3>
+          <p>Hiring managers submit role requests with detailed requirements. 
+          Automatic routing to appropriate approvers based on your governance model.</p>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h3>Sourcing & Screening</h3>
+          <p>Recruiters activate pipelines, source candidates, and conduct structured screening. 
+          All activity tracked in real-time.</p>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h3>Interview & Feedback</h3>
+          <p>Hiring managers review shortlists, conduct interviews, and provide feedback. 
+          Clear approval flows keep everyone aligned.</p>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <h3>Offer & Onboarding</h3>
+          <p>Automated offer generation, background checks, and onboarding workflows. 
+          Consultants receive clear communication at every step.</p>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal">
+        <div class="step-number">05</div>
+        <div class="step-content">
+          <h3>Active Management</h3>
+          <p>Time tracking, performance feedback, extensions, and renewals. 
+          All managed in one place with full audit trails.</p>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal">
+        <div class="step-number">06</div>
+        <div class="step-content">
+          <h3>Reporting & Analytics</h3>
+          <p>Real-time dashboards, custom reports, and program health metrics. 
+          Data-driven insights for continuous improvement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="section">
+  <div class="container">
+    <p class="kicker reveal">Integrations</p>
+    <h2 class="reveal">Where Technology Meets Human-Centric Recruiting</h2>
+    <p class="lead reveal">
+      TalentOS connects our recruiting teams, your hiring managers, and your existing HR technology stack into a single operating system. We use AI to accelerate sourcing, screening, and calibration—while keeping every interaction human, personal, and aligned to your culture.
+    </p>
+    <p class="lead reveal" style="margin-top: 16px;">
+      TalentOS integrates with leading ATS, HRIS, payroll, collaboration, background check, and global employment platforms including Greenhouse, BambooHR, ADP, Slack, LinkedIn, Google, Candidately, Accurate, Bullhorn, and Deel.
+    </p>
+    <p class="lead reveal" style="margin-top: 16px; font-size: 14px; color: var(--text-muted);">
+      Integrations are delivered through native connections, secure APIs, or configurable middleware depending on your existing systems and client requirements.
+    </p>
+
+    <div class="compliance-banner reveal" style="margin-top: 32px; padding: 24px 32px; border-radius: 16px; background: rgba(99, 102, 241, 0.06); border: 1px solid rgba(99, 102, 241, 0.12);">
+      <p style="margin: 0; color: var(--text-primary); font-size: 15px; font-weight: 600; line-height: 1.6;">
+        TalentOS is GDPR-compliant and designed with SOC 2 Type II-aligned security controls. We maintain certified vendors across our core technology stack and regularly complete enterprise security reviews to support global hiring, workforce compliance, and cross-border employment through partners like Deel.
+      </p>
+    </div>
+
+    <div class="integration-grid reveal" style="margin-top: 48px;">
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Greenhouse</h3>
+        <p>ATS & Recruiting</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Slack</h3>
+        <p>Collaboration</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2"/>
+            <circle cx="8.5" cy="7" r="4" stroke-width="2"/>
+            <polyline points="17 11 19 13 23 9" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>BambooHR</h3>
+        <p>HRIS</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="2"/>
+            <path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>ADP</h3>
+        <p>Payroll & HRIS</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2"/>
+            <circle cx="9" cy="7" r="4" stroke-width="2"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>LinkedIn</h3>
+        <p>Sourcing</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path d="M12 6v6l4 2" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Google Workspace</h3>
+        <p>Productivity</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2"/>
+            <polyline points="14 2 14 8 20 8" stroke-width="2"/>
+            <line x1="12" y1="18" x2="12" y2="12" stroke-width="2"/>
+            <line x1="9" y1="15" x2="15" y2="15" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Candidately</h3>
+        <p>Interview Scheduling</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2"/>
+            <path d="M9 12l2 2 4-4" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Accurate</h3>
+        <p>Background Checks</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <polyline points="12 6 12 12 16 14" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Bullhorn</h3>
+        <p>ATS & CRM</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-width="2"/>
+            <circle cx="12" cy="10" r="3" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Deel</h3>
+        <p>Global EOR</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke-width="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Microsoft 365</h3>
+        <p>Productivity</p>
+      </div>
+
+      <div class="integration-card">
+        <div class="int-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-width="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>GDPR Compliant</h3>
+        <p>Data Privacy</p>
+      </div>
+    </div>
+
+    <div class="integration-note reveal" style="margin-top: 32px; padding: 20px 24px; border-radius: 12px; background: rgba(15, 23, 42, 0.03); border: 1px solid var(--border-light);">
+      <p style="margin: 0; color: var(--text-muted); font-size: 13px; line-height: 1.6;">
+        Data privacy, security, and compliance are foundational to the TalentOS platform. Integration methods vary based on client environment and regional requirements.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="section light">
+  <div class="container">
+    <p class="kicker reveal">Security & Compliance</p>
+    <h2 class="reveal">Enterprise-grade security and data protection</h2>
+    <p class="lead reveal">
+      Built for the most demanding enterprise security requirements. 
+      SOC 2 Type II compliant, GDPR ready, and continuously audited.
+    </p>
+
+    <div class="security-grid reveal">
+      <div class="sec-item">
+        <div class="sec-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-width="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Data Encryption</h3>
+        <p>End-to-end encryption for data at rest and in transit. AES-256 encryption standards.</p>
+      </div>
+
+      <div class="sec-item">
+        <div class="sec-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>SOC 2 Type II</h3>
+        <p>Independently audited and certified. Annual penetration testing and security reviews.</p>
+      </div>
+
+      <div class="sec-item">
+        <div class="sec-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path d="M12 6v6l4 2" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>GDPR Compliant</h3>
+        <p>Full GDPR compliance with data residency options and right-to-be-forgotten workflows.</p>
+      </div>
+
+      <div class="sec-item">
+        <div class="sec-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2"/>
+            <circle cx="8.5" cy="7" r="4" stroke-width="2"/>
+            <polyline points="17 11 19 13 23 9" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Role-Based Access</h3>
+        <p>Granular permission controls, SSO integration, and comprehensive audit logging.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" id="get-started">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div>
+        <p class="kicker">Ready to see TalentOS™ in action?</p>
+        <h2>Request a personalized demo</h2>
+        <p>
+          See how TalentOS™ can transform your talent operations. 
+          Our team will walk you through the platform and answer your questions.
+        </p>
+      </div>
+      <div class="cta-row">
+        <a class="btn primary" href={`${baseUrl}/contact`}>Request Demo</a>
+        <a class="btn" href={`${baseUrl}/`}>Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</MainLayout>
+
+<style>
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 96px 0;
+  background: var(--bg-section);
+  position: relative;
+}
+
+.section.light {
+  position: relative;
+  background:
+    radial-gradient(1100px 520px at 20% 20%, rgba(99,102,241,0.08), transparent 60%),
+    radial-gradient(1100px 520px at 80% 10%, rgba(56,189,248,0.06), transparent 62%),
+    linear-gradient(180deg,
+      rgba(255,255,255,0.70) 0%,
+      rgba(255,255,255,0.55) 45%,
+      rgba(255,255,255,0.70) 100%);
+  isolation: isolate;
+}
+
+/* Typography */
+.kicker {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.lead {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  max-width: 80ch;
+}
+
+.bullets {
+  margin: 14px 0 0;
+  padding: 0 0 0 18px;
+  color: var(--text-secondary);
+}
+
+.bullets li {
+  margin: 10px 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--border-light);
+  background: rgba(255,255,255,0.85);
+  color: var(--text-primary);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, filter .15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(15,23,42,0.06);
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.95);
+  border-color: rgba(15,23,42,0.12);
+}
+
+.btn.primary {
+  border-color: transparent;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 16px 30px rgba(99, 102, 241, 0.18);
+}
+
+.btn.primary:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255,255,255,0.70);
+  color: var(--text-secondary);
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(15,23,42,0.05);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+  align-items: center;
+}
+
+/* Hero */
+.hero {
+  padding: 120px 0 80px;
+  background: var(--bg-page);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.06), transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.subhead {
+  margin: 0 0 18px;
+  color: var(--text-secondary);
+  font-size: 18px;
+  max-width: 60ch;
+}
+
+/* Product Frame */
+.product-frame {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background:
+    radial-gradient(420px 220px at 20% 10%, rgba(99,102,241,0.10), transparent 60%),
+    radial-gradient(420px 220px at 70% 25%, rgba(56,189,248,0.08), transparent 60%),
+    rgba(255,255,255,0.75);
+  box-shadow: 
+    0 28px 70px rgba(15,23,42,0.10),
+    0 0 0 1px rgba(99, 102, 241, 0.05);
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.product-topbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 12px;
+  background: 
+    linear-gradient(90deg, 
+      rgba(255,255,255,0.6) 0%, 
+      rgba(255,255,255,0.5) 100%);
+  backdrop-filter: blur(8px);
+}
+
+.dots {
+  display: flex;
+  gap: 7px;
+  position: relative;
+  z-index: 1;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.10);
+}
+
+.dot:nth-child(1) { background: rgba(239, 68, 68, 0.6); }
+.dot:nth-child(2) { background: rgba(251, 191, 36, 0.6); }
+.dot:nth-child(3) { background: rgba(34, 197, 94, 0.6); }
+
+.ui-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255,255,255,0.70);
+  color: var(--text-secondary);
+  font-size: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.spark {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(99,102,241,0.85);
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
+  animation: sparkPulse 3s ease-in-out infinite;
+}
+
+@keyframes sparkPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
+  }
+  50% { 
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(99,102,241,0);
+  }
+}
+
+.product-body {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+}
+
+/* Product Preview */
+.platform-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 24px;
+}
+
+.preview-item {
+  text-align: center;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.70);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.preview-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15,23,42,0.10);
+}
+
+.preview-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.preview-value {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tabs */
+.tabs-container {
+  margin-top: 48px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 32px;
+  overflow-x: auto;
+  position: relative;
+}
+
+.tabs::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+}
+
+.tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.tab:hover {
+  color: var(--text-primary);
+  background: rgba(99, 102, 241, 0.04);
+}
+
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Panel Grid */
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.panel-content h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+/* Feature Cards */
+.feature-card {
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.65) 100%),
+    var(--bg-glass);
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px rgba(15,23,42,0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(15,23,42,0.12);
+}
+
+.card-header {
+  padding: 16px 20px;
+  background: 
+    linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+  position: relative;
+}
+
+.card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+  opacity: 0.7;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Roster Items */
+.roster-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.roster-item:last-child {
+  border-bottom: none;
+}
+
+.roster-item:hover {
+  background: rgba(99, 102, 241, 0.04);
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px;
+}
+
+.roster-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.roster-role {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.roster-status {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  font-weight: 500;
+}
+
+/* Pipeline Stages */
+.pipeline-stage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.pipeline-stage:last-child {
+  border-bottom: none;
+}
+
+.pipeline-stage:hover {
+  background: rgba(99, 102, 241, 0.04);
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px;
+}
+
+.stage-name {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.stage-count {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), rgba(99, 102, 241, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Compliance Items */
+.compliance-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.compliance-item:last-child {
+  border-bottom: none;
+}
+
+.compliance-item:hover {
+  background: rgba(99, 102, 241, 0.04);
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px;
+}
+
+.compliance-label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.compliance-badge {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.compliance-badge.good {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.compliance-badge.warn {
+  background: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+}
+
+/* Metric Rows */
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.metric-row:last-child {
+  border-bottom: none;
+}
+
+.metric-row:hover {
+  background: rgba(99, 102, 241, 0.04);
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px;
+}
+
+.metric-label {
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.metric-value {
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), rgba(99, 102, 241, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Workflow Steps */
+.workflow-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.workflow-step {
+  position: relative;
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.65) 100%),
+    var(--bg-glass);
+  box-shadow: 
+    0 20px 40px rgba(15,23,42,0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  cursor: default;
+  transform: translateZ(0);
+}
+
+.workflow-step::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(700px 260px at 18% 18%, rgba(99, 102, 241, 0.10), transparent 60%),
+    radial-gradient(700px 260px at 82% 40%, rgba(56, 189, 248, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.workflow-step::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  border-radius: 999px;
+  background: conic-gradient(from 180deg, rgba(99, 102, 241, 0.00), rgba(99, 102, 241, 0.08), rgba(56, 189, 248, 0.08), rgba(99, 102, 241, 0.00));
+  filter: blur(32px);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.workflow-step:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 24px 70px rgba(15,23,42,0.12);
+  border-color: rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.90);
+}
+
+.workflow-step:hover::before {
+  opacity: 1;
+}
+
+.workflow-step:hover::after {
+  opacity: 0.5;
+}
+
+.step-number {
+  font-size: 48px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), rgba(99, 102, 241, 0.5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.18s ease;
+}
+
+.workflow-step:hover .step-number {
+  transform: translateY(-1px);
+}
+
+.step-content {
+  position: relative;
+  z-index: 1;
+}
+
+.step-content h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  transition: transform 0.18s ease;
+}
+
+.workflow-step:hover .step-content h3 {
+  transform: translateY(-1px);
+}
+
+.step-content p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.workflow-step:hover .step-content p {
+  transform: translateY(-1px);
+  color: var(--text-primary);
+}
+
+/* Integration Grid */
+.integration-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.integration-card {
+  padding: 32px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.65) 100%),
+    var(--bg-glass);
+  text-align: center;
+  box-shadow: 
+    0 20px 40px rgba(15,23,42,0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.integration-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(15,23,42,0.12);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+.int-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.70);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.integration-card:hover .int-icon {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.1);
+}
+
+.integration-card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.integration-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Security Grid */
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.sec-item {
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.65) 100%),
+    var(--bg-glass);
+  box-shadow: 
+    0 20px 40px rgba(15,23,42,0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.sec-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(15,23,42,0.12);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+.sec-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.70);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.sec-item:hover .sec-icon {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.1);
+}
+
+.sec-item h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.sec-item p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* CTA Card */
+.cta-card {
+  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  background:
+    radial-gradient(900px 260px at 50% 0%, rgba(99,102,241,0.12), transparent 70%),
+    radial-gradient(900px 260px at 50% 100%, rgba(56,189,248,0.10), transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.75) 100%),
+    var(--bg-glass);
+  padding: 48px;
+  box-shadow: 
+    0 28px 70px rgba(15,23,42,0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  text-align: center;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.cta-card h2 {
+  margin: 16px 0;
+}
+
+.cta-card p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.cta-card .cta-row {
+  justify-content: center;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .7s ease, transform .7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .panel-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .workflow-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .integration-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .hero {
+    padding: 96px 0 64px;
+  }
+
+  .tabs {
+    flex-wrap: nowrap;
+  }
+
+  .workflow-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .integration-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .security-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    padding: 32px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+</style>
+
+<script>
+  // Tab functionality
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.dataset.tab;
+      
+      // Remove active from all tabs and panels
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      
+      // Add active to clicked tab and corresponding panel
+      tab.classList.add('active');
+      document.getElementById(targetId)?.classList.add('active');
+    });
+  });
+</script>
+
