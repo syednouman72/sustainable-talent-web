@@ -1414,6 +1414,40 @@ const canonicalUrl = 'https://sustainabletalent.com/about';
   color: var(--text-secondary);
   border-top-color: rgba(99, 102, 241, 0.15);
 }
+
+/* CTA Form Styles */
+.form {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.input {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
 </style>
 
 <script>
