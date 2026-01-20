@@ -99,7 +99,7 @@ End Custom Variable Groups
   --secondary-foreground: var(--_apps---colors--secondary-foreground);
   --muted: var(--_apps---colors--muted);
   --muted-foreground: var(--_apps---colors--muted-foreground);
-  --accent: var(--_apps---colors--accent);
+  --accent: #6366F1;
   --accent-foreground: var(--_apps---colors--accent-foreground);
   --destructive: var(--_apps---colors--destructive);
   --border: var(--_apps---colors--border);
@@ -149,7 +149,7 @@ End Custom Variable Groups
   --muted-foreground: var(
     --_apps---colors--muted-foreground-dark
   );
-  --accent: var(--_apps---colors--accent);
+  --accent: #6366F1;
   --accent-foreground: var(--_apps---colors--accent-foreground);
   --destructive: var(--_apps---colors--destructive-dark);
   --border: var(--_apps---colors--border-dark);
