@@ -38,97 +38,71 @@ const canonicalUrl = "https://sustainabletalent.com/contact";
         <!-- Contact Form -->
         <div class="contact-form-wrapper reveal">
           <h2>Send us a message</h2>
-  <p class="form-intro">
-    Fill out the form below and we'll get back to you within 24 hours.
-  </p>
-
-  <script src="https://js.hsforms.net/forms/embed/45991915.js" defer></script>
-  <div class="hs-form-frame" data-region="na1" data-form-id="2cd67c3b-8381-4b27-8d63-12e2b2636e34" data-portal-id="45991915"></div>
-          <!-- <h2>Send us a message</h2>
           <p class="form-intro">
             Fill out the form below and we'll get back to you within 24 hours.
           </p>
 
-          <form class="contact-form" id="contactForm">
+          <form class="contact-form" id="hubspotForm">
             <div class="form-row">
               <div class="form-group">
-                <label for="firstName">First Name *</label>
+                <label for="firstname">First Name *</label>
                 <input
                   type="text"
-                  id="firstName"
-                  name="firstName"
+                  id="firstname"
+                  name="firstname"
                   required
-                  placeholder="John"
+                  value="Noman"
                 />
               </div>
               <div class="form-group">
-                <label for="lastName">Last Name *</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  required
-                  placeholder="Smith"
-                />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Work Email *</label>
+                <label for="email">Email *</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
-                  placeholder="john@company.com"
-                />
-              </div>
-              <div class="form-group">
-                <label for="company">Company</label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  placeholder="Acme Corp"
+                  value="mnmustafa1109@gmail.com"
                 />
               </div>
             </div>
 
             <div class="form-group">
-              <label for="subject">Subject *</label>
-              <select id="subject" name="subject" required>
-                <option value="">Select a topic...</option>
-                <option value="demo">Request a Demo</option>
-                <option value="pricing">Pricing & Plans</option>
-                <option value="enterprise">Enterprise Inquiry</option>
-                <option value="support">Technical Support</option>
-                <option value="partnership">Partnership Opportunity</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="6"
+              <label for="company">Company Name *</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
                 required
-                placeholder="Tell us about your talent operations needs..."
-              ></textarea>
+                placeholder="Acme Corp"
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="what_do_you_need_">What do you need? *</label>
+                <select id="what_do_you_need_" name="what_do_you_need_" required>
+                  <option value="" disabled selected>Select an option...</option>
+                  <option value="Contractors">Contractors</option>
+                  <option value="Recruiting">Recruiting</option>
+                  <option value="Both">Both</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="us_only_or_global">US only or Global? *</label>
+                <select id="us_only_or_global" name="us_only_or_global" required>
+                  <option value="" disabled selected>Select an option...</option>
+                  <option value="US only">US only</option>
+                  <option value="Global">Global</option>
+                </select>
+              </div>
             </div>
 
             <button type="submit" class="btn primary submit-btn">
-              Send Message
+              Submit
             </button>
-
-            <p class="form-note">
-              By submitting this form, you agree to our
-              <a href={`${baseUrl}/privacy`}>Privacy Policy</a> and
-              <a href={`${baseUrl}/terms`}>Terms of Service</a>.
-            </p>
-          </form> -->
+            <div id="formStatus" style="display: none; text-align: center; margin-top: 10px;"></div>
+          </form>
         </div>
 
         <!-- Contact Info -->
@@ -493,6 +467,24 @@ const canonicalUrl = "https://sustainabletalent.com/contact";
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     font-family: inherit;
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  }
+
+  .form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 18px;
+    padding-right: 48px;
+    cursor: pointer;
+  }
+
+  .form-group select option {
+    background: white;
+    color: var(--text-primary);
+    padding: 12px;
   }
 
   .form-group textarea {
@@ -926,4 +918,75 @@ const canonicalUrl = "https://sustainabletalent.com/contact";
     });
   }, { threshold: 0.12 });
   els.forEach(el => io.observe(el));
+
+  // Form submission
+  const hubspotForm = document.getElementById("hubspotForm");
+  const formStatus = document.getElementById("formStatus");
+
+  hubspotForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = hubspotForm.querySelector('.submit-btn');
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+    }
+
+    const formData = new FormData(hubspotForm);
+    const portalId = "45991915";
+    const formId = "2cd67c3b-8381-4b27-8d63-12e2b2636e34";
+    const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+    // Map FormData to HubSpot fields structure
+    const fields = [];
+    for (const [name, value] of formData.entries()) {
+      fields.push({ name, value });
+    }
+
+    const payload = {
+      fields,
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        if (formStatus) {
+            formStatus.style.display = 'block';
+            formStatus.style.color = 'green';
+            formStatus.textContent = 'Thank you! Your submission has been received.';
+        }
+        hubspotForm.reset();
+      } else {
+        const errorData = await response.json();
+        console.error("HubSpot submission error:", errorData);
+         if (formStatus) {
+            formStatus.style.display = 'block';
+            formStatus.style.color = 'red';
+            formStatus.textContent = 'Something went wrong. Please try again.';
+        }
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+       if (formStatus) {
+            formStatus.style.display = 'block';
+            formStatus.style.color = 'red';
+            formStatus.textContent = 'Network error. Please check your connection.';
+        }
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit';
+        }
+    }
+  });
 </script>
