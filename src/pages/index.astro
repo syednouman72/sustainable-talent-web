@@ -368,9 +368,12 @@ const pageClass = 'solutions';
         <div class="helper">One thoughtful follow-up. No spam.</div>
       </div>
 
-      <form class="form" action="#" method="post">
-        <input class="input" type="email" name="email" placeholder="Enter your email address" required />
-        <button class="btn primary" type="submit">Submit</button>
+      <form class="form" id="home-form" action="#" method="post">
+        <div class="form-row" style="display: flex; gap: 10px; width: 100%; flex-wrap: wrap; justify-content: flex-end;">
+          <input class="input" type="email" name="email" placeholder="Enter your email address" required />
+          <button class="btn primary" type="submit">Submit</button>
+        </div>
+        <div id="home-form-status" style="display: none; width: 100%; margin-top: 10px; font-size: 13px; text-align: right;"></div>
       </form>
     </div>
   </div>
@@ -1511,5 +1514,89 @@ const pageClass = 'solutions';
 
   // Initial view
   setView("vsp");
+
+  // Home Form submission
+  const homeForm = document.getElementById("home-form");
+  const homeFormStatus = document.getElementById("home-form-status");
+
+  homeForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = homeForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+    }
+
+    const formData = new FormData(homeForm);
+    const portalId = "45991915";
+    const formId = "cb187e1e-4ffb-4742-92bc-70555558f6fa";
+    const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+    // Map FormData to HubSpot fields structure
+    const fields = [];
+    for (const [name, value] of formData.entries()) {
+      fields.push({ name, value });
+    }
+
+    const payload = {
+      fields,
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        if (homeFormStatus) {
+            homeFormStatus.style.display = 'block';
+            homeFormStatus.style.color = 'var(--text-primary)'; // Visible color
+            homeFormStatus.textContent = 'Thank you! We will be in touch soon.';
+        }
+        homeForm.reset();
+        if (submitBtn) {
+           submitBtn.textContent = 'Sent!';
+           setTimeout(() => {
+               submitBtn.disabled = false;
+               submitBtn.textContent = originalBtnText;
+               if (homeFormStatus) homeFormStatus.style.display = 'none';
+           }, 5000);
+        }
+      } else {
+        const errorData = await response.json();
+        console.error("HubSpot submission error:", errorData);
+         if (homeFormStatus) {
+            homeFormStatus.style.display = 'block';
+            homeFormStatus.style.color = 'red';
+            homeFormStatus.textContent = 'Something went wrong. Please try again.';
+        }
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+       if (homeFormStatus) {
+            homeFormStatus.style.display = 'block';
+            homeFormStatus.style.color = 'red';
+            homeFormStatus.textContent = 'Network error. Please check your connection.';
+        }
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    }
+  });
 </script>
 

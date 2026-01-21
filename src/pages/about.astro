@@ -420,9 +420,12 @@ const canonicalUrl = 'https://sustainabletalent.com/about';
         <div class="helper">No spam. One thoughtful follow-up.</div>
       </div>
 
-      <form class="form" action="#" method="post">
-        <input class="input" type="email" name="email" placeholder="Enter your email address" required />
-        <button class="btn primary bounce-subtle" type="submit">Submit</button>
+      <form class="form" id="about-form" action="#" method="post" style="flex-wrap: wrap;">
+        <div class="form-row" style="display: flex; gap: 12px; width: 100%;">
+          <input class="input" type="email" name="email" placeholder="Enter your email address" required />
+          <button class="btn primary bounce-subtle" type="submit">Submit</button>
+        </div>
+        <div id="about-form-status" style="display: none; width: 100%; margin-top: 10px; font-size: 13px; text-align: right;"></div>
       </form>
     </div>
   </div>
@@ -1443,7 +1446,7 @@ const canonicalUrl = 'https://sustainabletalent.com/about';
 }
 
 @media (max-width: 768px) {
-  .form {
+  .form, .form-row {
     flex-direction: column;
     max-width: 100%;
   }
@@ -1473,6 +1476,90 @@ const canonicalUrl = 'https://sustainabletalent.com/about';
       (p as HTMLElement).style.setProperty("--mx", x.toFixed(2) + "%");
     });
     p.addEventListener("mouseleave", () => (p as HTMLElement).style.setProperty("--mx", "50%"));
+  });
+
+  // About Form submission
+  const aboutForm = document.getElementById("about-form");
+  const aboutFormStatus = document.getElementById("about-form-status");
+
+  aboutForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = aboutForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+    }
+
+    const formData = new FormData(aboutForm);
+    const portalId = "45991915";
+    const formId = "cb187e1e-4ffb-4742-92bc-70555558f6fa";
+    const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+    // Map FormData to HubSpot fields structure
+    const fields = [];
+    for (const [name, value] of formData.entries()) {
+      fields.push({ name, value });
+    }
+
+    const payload = {
+      fields,
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        if (aboutFormStatus) {
+            aboutFormStatus.style.display = 'block';
+            aboutFormStatus.style.color = 'var(--text-primary)';
+            aboutFormStatus.textContent = 'Thank you! We will be in touch soon.';
+        }
+        aboutForm.reset();
+        if (submitBtn) {
+           submitBtn.textContent = 'Sent!';
+           setTimeout(() => {
+               submitBtn.disabled = false;
+               submitBtn.textContent = originalBtnText;
+               if (aboutFormStatus) aboutFormStatus.style.display = 'none';
+           }, 5000);
+        }
+      } else {
+        const errorData = await response.json();
+        console.error("HubSpot submission error:", errorData);
+         if (aboutFormStatus) {
+            aboutFormStatus.style.display = 'block';
+            aboutFormStatus.style.color = 'red';
+            aboutFormStatus.textContent = 'Something went wrong. Please try again.';
+        }
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+       if (aboutFormStatus) {
+            aboutFormStatus.style.display = 'block';
+            aboutFormStatus.style.color = 'red';
+            aboutFormStatus.textContent = 'Network error. Please check your connection.';
+        }
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    }
   });
 </script>
 </MainLayout>
