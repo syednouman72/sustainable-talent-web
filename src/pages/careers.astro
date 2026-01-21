@@ -46,7 +46,7 @@ const canonicalUrl = 'https://sustainabletalent.com/careers';
 
           <div class="hero-actions">
             <a class="btn primary" href="#openings">View openings</a>
-            <!-- <a class="btn" href="#culture">Culture + values</a> -->
+            <a class="btn" href="#culture">Culture + values</a>
           </div>
         </div>
 
@@ -134,7 +134,7 @@ const canonicalUrl = 'https://sustainabletalent.com/careers';
     </div>
   </section>
 
-  <section class="section" style="margin-top: 40px;" id="openings">
+  <section class="section" id="openings">
     <div class="container">
       <p class="kicker reveal">Open roles</p>
       <h2 class="reveal">Join the team</h2>
@@ -166,7 +166,7 @@ const canonicalUrl = 'https://sustainabletalent.com/careers';
         <p>Loading open positions...</p>
       </div>
 
-      <div data-gh="root" class="jobs-list reveal"></div>
+      <div data-gh="root" class="jobs-list"></div>
 
       <div style="display: none;">
         
@@ -246,14 +246,10 @@ const canonicalUrl = 'https://sustainabletalent.com/careers';
    TYPOGRAPHY SPACING FIXES
    ========================================= */
 
-/* Space between Headings and Paragraphs (Excluding Hero) */
+/* Space between Headings and Paragraphs */
 .section h2 {
-  margin-bottom: 24px; /* Added breathing room */
+  margin-bottom: 24px;
 }
-
-/* Optional: If you want more space in the hero specifically, add it here */
-/* .hero h1 { margin-bottom: 24px; } */
-
 
 /* =========================================
    VISUAL FRAME (The "Floaty" Card)
@@ -516,7 +512,7 @@ const canonicalUrl = 'https://sustainabletalent.com/careers';
 
 /* Ensure the jobs section has enough bottom padding */
 #openings {
-  padding-bottom: 120px !important; /* Prevents last job from touching footer */
+  padding-bottom: 120px !important;
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -525,16 +521,14 @@ const canonicalUrl = 'https://sustainabletalent.com/careers';
    MOBILE RESPONSIVENESS FIXES
    ========================================= */
 @media (max-width: 1024px) {
-  /* Fix cramped sections */
   .hero {
-    padding: 60px 0 40px; /* Reduced top padding, but kept comfortable */
+    padding: 60px 0 40px;
   }
   
   .section {
-    padding: 60px 0; /* Consistent mobile padding */
+    padding: 60px 0;
   }
   
-  /* Ensure container has side padding on mobile */
   .container {
     padding-left: 24px;
     padding-right: 24px;
@@ -547,14 +541,13 @@ const canonicalUrl = 'https://sustainabletalent.com/careers';
     flex-direction: column; 
     align-items: flex-start; 
     gap: 16px; 
-    padding: 20px; /* Slightly tighter padding for mobile cards */
+    padding: 20px;
   }
   
   .job-action { margin-top: 8px; }
   .filters { flex-direction: column; gap: 12px; }
   .search-wrapper, .select-input { width: 100%; min-width: 0; }
   
-  /* Allow frame to breathe on mobile */
   .frame { margin-top: 20px; }
 }
 </style>
