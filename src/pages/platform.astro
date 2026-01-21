@@ -413,19 +413,18 @@ const canonicalUrl = "https://sustainabletalent.com/";
           </p>
 
           <div class="two-col" style="margin-top:22px;">
-            <div class="panel reveal slide-left">
+            <div class="panel reveal slide-left" style="margin-top:22px;">
               <p class="kicker">Visual</p>
               <h3 style="font-size:18px; margin-bottom:10px;">
                 TalentOS™ client dashboard
               </h3>
-              <p class="lead" style="margin-bottom:14px;">
-                Replace this panel with a crisp TalentOS UI image (Figma mock or
-                screenshot). Keep it clean, enterprise, and readable.
-              </p>
-              <div
-                style="border-radius:18px; border:1px dashed var(--border-light); background: rgba(255,255,255,0.75); height:300px; display:flex; align-items:center; justify-content:center; color: var(--text-muted); box-shadow: 0 10px 22px rgba(15,23,42,0.06);"
-              >
-                UI placeholder (1400 x 900)
+              <div class="product-image-wrapper">
+                <img
+                  src="/images/portal.webp"
+                  alt="TalentOS™ Client Dashboard"
+                  class="product-image"
+                  loading="lazy"
+                />
               </div>
             </div>
 
@@ -2074,6 +2073,26 @@ const canonicalUrl = "https://sustainabletalent.com/";
 
         .bullets li {
           margin: 10px 0;
+        }
+
+        .product-image-wrapper {
+          margin-top: 14px;
+          border-radius: 18px;
+          overflow: hidden;
+          border: 1px solid var(--border-light);
+          box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+          background: #fff;
+        }
+
+        .product-image {
+          width: 100%;
+          height: auto;
+          display: block;
+          transition: transform 0.5s ease;
+        }
+
+        .panel:hover .product-image {
+          transform: scale(1.02);
         }
 
         /* Feature list */
