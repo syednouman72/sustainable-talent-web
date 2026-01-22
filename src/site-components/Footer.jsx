@@ -123,8 +123,8 @@ export function Footer(
                                                 button={false}
                                                 block=""
                                                 options={{
-                                                    href: "tel:1(645)202-2255"
-                                                }}>{"1 (645) 202-2255"}</_Builtin.Link></_Builtin.ListItem></_Builtin.List></_Builtin.Block></_Builtin.Block></_Builtin.Block><_Builtin.Block className="footer-year-wrapper" tag="div"><_Builtin.Block className="footer-copyright" tag="div"><_Builtin.Block className="text-size-16" tag="div">{"Copyright "}<_Builtin.Span className="year" data-year="">{"2025"}</_Builtin.Span>{" Sustainable Talent. All Rights Reserved."}</_Builtin.Block></_Builtin.Block><_Builtin.List className="footer-list is-policy" tag="ul" unstyled={true}><_Builtin.ListItem className="footer-list-item margin-bottom-0"><_Builtin.Link
+                                                    href: "tel:+17545818658"
+                                                }}>{"(754) 581-8658"}</_Builtin.Link></_Builtin.ListItem></_Builtin.List></_Builtin.Block></_Builtin.Block></_Builtin.Block><_Builtin.Block className="footer-year-wrapper" tag="div"><_Builtin.Block className="footer-copyright" tag="div"><_Builtin.Block className="text-size-16" tag="div">{"Copyright "}<_Builtin.Span className="year" data-year="">{"2025"}</_Builtin.Span>{" Sustainable Talent. All Rights Reserved."}</_Builtin.Block></_Builtin.Block><_Builtin.List className="footer-list is-policy" tag="ul" unstyled={true}><_Builtin.ListItem className="footer-list-item margin-bottom-0"><_Builtin.Link
                                         className="footer-link-item"
                                         button={false}
                                         block=""
